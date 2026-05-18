@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: hero-overlay
-Last completed: hero-overlay
+Current section: problem
+Last completed: problem
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -11,6 +11,7 @@ Last completed: hero-overlay
 - Session 3: Three.js hero scene (2026-05-18)
 - Session 4: Navigation (2026-05-18)
 - Session 5: Hero overlay (2026-05-18)
+- Session 6: Problem section (2026-05-18)
 
 ## Session Log
 
@@ -60,3 +61,20 @@ Files modified: index.html (hero section HTML injected into main; hero.css link 
 Decisions: service-reveal-wrap uses flexbox centering so GSAP y-animation on inner card never conflicts; .hero-section__overlay starts visibility:hidden opacity:0 — revealHero() in phoenix-scene.js animates to autoAlpha:1 after GPU pre-warm; section-grain::after uses noise.png at opacity 0.035; button-primary never uses gold — always var(--accent) teal; service-reveal-wrap hidden on mobile (display:none) — touch users can't hover; cursor-dot inside hero-section (not layout.css)
 Exit checks: 23/23 PASS
 Issues: none
+
+### Fix — 2026-05-18
+Task: Create missing css/typography.css
+Status: complete
+Files created: css/typography.css
+Files modified: build-log.md
+Decisions: font tokens stay in variables.css (no redefinition); clamp() fluid scale throughout; dark-mode weight reduction 600→500; dark body line-height +2px; 65ch max-width on p; SplitText .line/.word/.char inline-block; banned fonts verified absent; hover gated behind (hover: hover) and (pointer: fine)
+Exit checks: 26/26 PASS (1 false-positive on regex — resolved with word boundaries)
+
+### Session 6 — 2026-05-18
+Task: Problem section
+Status: complete
+Files created: css/sections/problem.css, js/sections/problem.js (new js/sections/ dir)
+Files modified: index.html (section HTML + problem.css link), js/app.js (import + initProblem() call), build-log.md
+Decisions: cubic-bezier(0.05,0.7,0.1,1.0) replaces bare ease on CSS transitions per session directive; max-width:none on .problem__line overrides typography.css p constraint; border-left 2px used as state indicator (inactive→active) per section spec — flagged impeccable conflict, project spec takes precedence; gsap.matchMedia() ctx with return()=>revert() for leak-safe cleanup; autoAlpha not opacity; once:true on all ScrollTriggers; curly apostrophes via &rsquo;
+Exit checks: 34/34 PASS
+Word count: 34 words (under 40-word ceiling)
