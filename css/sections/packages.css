@@ -1,0 +1,124 @@
+.packages { padding: var(--space-14) 0; }
+.packages__inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.packages__header { margin-bottom: 64px; }
+.packages__stack { display: flex; flex-direction: column; gap: 2px; }
+
+.package-card {
+  background: var(--surface-0);
+  border: 1px solid var(--border-subtle);
+  padding: 40px;
+  position: relative;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.package-card:first-child { border-radius: 2rem 2rem 0 0; }
+.package-card:last-child  { border-radius: 0 0 2rem 2rem; }
+
+.package-card:not(.package-card--featured):hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.package-card--featured {
+  background: var(--surface-1);
+  border-color: var(--accent);
+  z-index: 1;
+  animation: featured-pulse 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.package-card--featured:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 12px 40px var(--accent-glow);
+  animation-play-state: paused;
+}
+
+@keyframes featured-pulse {
+  0%,  100% { box-shadow: 0 0 0 0 transparent; }
+  50%        { box-shadow: 0 0 0 1px var(--accent), 0 8px 32px var(--accent-glow); }
+}
+
+.package-card__badge {
+  position: absolute; top: -12px; left: 40px;
+  background: var(--accent); color: #030712;
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px;
+}
+
+.package-card__tier {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-2); display: block; margin-bottom: 12px;
+}
+
+.package-card__amount {
+  font-family: var(--font-display); font-size: 48px; font-weight: 600;
+  color: var(--text-0); line-height: 1; margin-bottom: 8px;
+}
+
+.package-card__name {
+  font-family: var(--font-display); font-size: 22px; font-weight: 600;
+  color: var(--text-0); margin-bottom: 24px;
+}
+
+.package-card__outcomes {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
+  list-style: none; padding: 0; margin-top: 0;
+}
+.package-card__outcomes li {
+  font-family: var(--font-body); font-size: 15px; color: var(--text-1);
+  padding-left: 20px; position: relative;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.package-card__outcomes li::before { content: '\2192'; position: absolute; left: 0; color: var(--text-2); }
+.package-card__highlight { color: var(--text-0) !important; font-weight: 500; }
+.package-card__highlight::before { color: var(--accent) !important; }
+
+.package-card__addons {
+  border-top: 1px solid var(--border-subtle); padding-top: 20px; margin-bottom: 24px;
+  font-family: var(--font-body); font-size: 13px; color: var(--text-2);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.package-card__addons-label {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-gold); margin-bottom: 8px;
+}
+
+.package-card__footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.package-card__timeline { font-size: 12px; color: var(--text-2); font-family: var(--font-body); }
+
+.packages__maintenance {
+  margin-top: 48px; padding: 32px;
+  border: 1px solid var(--border-subtle); border-radius: 1rem; text-align: center;
+}
+.packages__maintenance-label {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-2); margin-bottom: 8px; display: block;
+}
+.packages__maintenance-price {
+  font-family: var(--font-display); font-size: 28px; color: var(--text-0); margin-bottom: 12px;
+}
+.packages__maintenance-desc {
+  font-family: var(--font-body); font-size: 14px; color: var(--text-2);
+  max-width: 480px; margin: 0 auto; line-height: 1.6;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .package-card { padding: 28px 24px; }
+  .package-card__amount { font-size: 40px; }
+  .package-card__footer { flex-direction: column; align-items: flex-start; }
+  .packages__maintenance { padding: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .package-card { transition: none; }
+  .package-card--featured { animation: none; }
+}
