@@ -42,6 +42,7 @@
   <link rel="stylesheet" href="/css/sections/hero.css">
   <link rel="stylesheet" href="/css/sections/problem.css">
   <link rel="stylesheet" href="/css/sections/how.css">
+  <link rel="stylesheet" href="/css/sections/niches.css">
 
   <!-- Cloudflare Turnstile (forms — necessary category, no consent required) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -225,6 +226,104 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ── Session 8: Niches ─────────────────────────────────────────────────── -->
+    <!-- --niche-active initialised to kitchen accent on :root via JS init;    -->
+    <!-- style attr here provides a CSS fallback before JS runs                -->
+    <section class="niches section-grain" id="niches" style="--niche-active: #8B3B2C">
+      <div class="niches__header">
+        <span class="label">Five Niches. One Studio.</span>
+        <h2>Specialist Territory</h2>
+      </div>
+      <div class="niches__grid">
+
+        <!-- 01 Kitchen — default active, no lazy loading (first paint) -->
+        <article class="niche-card active" data-niche="kitchen" tabindex="0"
+          aria-label="Custom Kitchen Design-Build — select to explore">
+          <div class="niche-card__media">
+            <img src="/assets/img/niche-kitchen.avif"
+              alt="Custom kitchen with bespoke cabinetry, stone surfaces, and integrated appliances"
+              width="600" height="750">
+          </div>
+          <div class="niche-card__body">
+            <span class="niche-card__label">01</span>
+            <h3 class="niche-card__title">Custom Kitchen Design-Build</h3>
+            <p class="niche-card__desc">Scroll-driven kitchen assembly for firms building $100K+ culinary spaces.</p>
+            <a href="https://zolcuz-kitchen.vercel.app" class="button-secondary"
+              target="_blank" rel="noopener noreferrer">View Demo</a>
+          </div>
+        </article>
+
+        <!-- 02 Home Theater — lazy loaded, warmed on idle -->
+        <article class="niche-card" data-niche="theater" tabindex="0"
+          aria-label="Custom Home Theater — select to explore">
+          <div class="niche-card__media">
+            <img src="/assets/img/niche-theater.avif"
+              alt="Custom home theater with tiered seating, Dolby Atmos, and 4K projection"
+              width="600" height="750" loading="lazy">
+          </div>
+          <div class="niche-card__body">
+            <span class="niche-card__label">02</span>
+            <h3 class="niche-card__title">Custom Home Theater</h3>
+            <p class="niche-card__desc">Scroll-driven theater reveals for installers delivering $80K+ screening rooms.</p>
+            <a href="https://zolcuz-theater.vercel.app" class="button-secondary"
+              target="_blank" rel="noopener noreferrer">View Demo</a>
+          </div>
+        </article>
+
+        <!-- 03 Custom Closet — lazy loaded, warmed on idle -->
+        <article class="niche-card" data-niche="closet" tabindex="0"
+          aria-label="Custom Closet and Wardrobe — select to explore">
+          <div class="niche-card__media">
+            <img src="/assets/img/niche-closet.avif"
+              alt="Bespoke wardrobe system with integrated lighting, hanging rails, and cedar lining"
+              width="600" height="750" loading="lazy">
+          </div>
+          <div class="niche-card__body">
+            <span class="niche-card__label">03</span>
+            <h3 class="niche-card__title">Custom Closet &amp; Wardrobe</h3>
+            <p class="niche-card__desc">Bespoke wardrobe reveals for companies crafting $40K+ bespoke storage systems.</p>
+            <a href="https://zolcuz-closet.vercel.app" class="button-secondary"
+              target="_blank" rel="noopener noreferrer">View Demo</a>
+          </div>
+        </article>
+
+        <!-- 04 Premium Bathroom — lazy loaded, warmed on idle -->
+        <article class="niche-card" data-niche="bathroom" tabindex="0"
+          aria-label="Premium Bathroom Renovation — select to explore">
+          <div class="niche-card__media">
+            <img src="/assets/img/niche-bathroom.avif"
+              alt="Premium bathroom with freestanding tub, limestone surfaces, and bespoke wet room"
+              width="600" height="750" loading="lazy">
+          </div>
+          <div class="niche-card__body">
+            <span class="niche-card__label">04</span>
+            <h3 class="niche-card__title">Premium Bathroom Renovation</h3>
+            <p class="niche-card__desc">Spa-atmosphere reveals for firms building $60K+ bespoke wet room environments.</p>
+            <a href="https://zolcuz-bathroom.vercel.app" class="button-secondary"
+              target="_blank" rel="noopener noreferrer">View Demo</a>
+          </div>
+        </article>
+
+        <!-- 05 Windows, Doors &amp; Conservatories — lazy loaded, warmed on idle -->
+        <article class="niche-card" data-niche="windows" tabindex="0"
+          aria-label="Luxury Windows, Doors and Conservatories — select to explore">
+          <div class="niche-card__media">
+            <img src="/assets/img/niche-windows.avif"
+              alt="Luxury windows and conservatory with slim-profile aluminium frames and structural glazing"
+              width="600" height="750" loading="lazy">
+          </div>
+          <div class="niche-card__body">
+            <span class="niche-card__label">05</span>
+            <h3 class="niche-card__title">Windows, Doors &amp; Conservatories</h3>
+            <p class="niche-card__desc">Precision-built scroll reveals for companies supplying $50K+ glazing systems.</p>
+            <a href="https://zolcuz-windows.vercel.app" class="button-secondary"
+              target="_blank" rel="noopener noreferrer">View Demo</a>
+          </div>
+        </article>
+
       </div>
     </section>
 

@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: how-it-works
-Last completed: how-it-works
+Current section: niches
+Last completed: niches
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -13,6 +13,7 @@ Last completed: how-it-works
 - Session 5: Hero overlay (2026-05-18)
 - Session 6: Problem section (2026-05-18)
 - Session 7: How It Works section (2026-05-18)
+- Session 8: Niches section (2026-05-18)
 
 ## Session Log
 
@@ -87,3 +88,11 @@ Files created: css/sections/how.css, js/sections/how.js (js/sections/ dir alread
 Files modified: index.html (section HTML + how.css link), js/app.js (import + initHow() call), build-log.md
 Decisions: var(--bg-1) alternates from problem (var(--bg-0)) for section rhythm; clamp(48px, 6vw, 72px) on .how-step__num (ui-typography clamp() rule); aria-hidden="true" on decorative numerals; max-width:none on .how-step__desc overrides typography.css p constraint; -webkit-line-clamp:5 CMS protection per spec; gsap.matchMedia() ctx with return()=>{}; autoAlpha not opacity; once:true; power3.out; h3 font-size owned by typography.css — this file spacing only; &mdash; in step-02 copy per spec
 Exit checks: 26/26 PASS
+
+### Session 8 — 2026-05-18
+Task: Niches section
+Status: complete
+Files created: css/sections/niches.css, js/sections/niches.js
+Files modified: index.html (section HTML + niches.css link), js/app.js (import + initNiches() call), build-log.md
+Decisions: interactive accordion flex — active card flex:2.5, inactive flex:1; CSS transition on flex (not GSAP — layout property rule); var(--niche-active) set on :root via JS, CSS fallback on section element; kitchen loaded on first paint (no lazy), theater/closet/bathroom/windows lazy + requestIdleCallback warming; GSAP cross-fade autoAlpha 0.5 to 1 with power2.out; per-niche colour temperatures per spec (accent only, never CTA fill); keyboard accessible (tabindex=0, Enter/Space handlers); rel=noopener noreferrer on all _blank links; &amp; entities in headings; max-width:none on desc; clamp() on label; pill-badge for coming-soon state; copy sourced from copy-voice-and-vocabulary.md vocabulary
+Exit checks: 49/49 PASS
