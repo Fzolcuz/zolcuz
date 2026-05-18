@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: retention-stats
-Last completed: retention-stats
+Current section: process
+Last completed: process
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -15,8 +15,18 @@ Last completed: retention-stats
 - Session 7: How It Works section (2026-05-18)
 - Session 8: Niches section (2026-05-18)
 - Session 9: Retention Stats section (2026-05-18)
+- Session 10: Process section (2026-05-18)
 
 ## Session Log
+
+### Session 10 — 2026-05-18
+Task: Process section
+Status: complete
+Files created: css/sections/process.css, js/sections/process.js, exit-check-10.mjs
+Files modified: index.html (section HTML + process.css link), js/app.js (import + initProcess() call), build-log.md
+Decisions: var(--bg-1) alternates from retention (var(--bg-0)) for section rhythm; 3-state opacity model: dim 35% / done 60% / active 100%; CSS transitions own opacity animation — GSAP assigns classes only; cubic-bezier(0.05,0.7,0.1,1.0) on all transitions (not bare ease); clamp(40px,5vw,64px) on process-step__num (ui-typography clamp rule); clamp(20px,2.5vw,28px) on process-step__title; tabular-nums on decorative numerals; setActiveStep() helper centralises state toggling; ScrollTrigger.create per step with onEnter + onEnterBack — deliberately NO once:true (illumination must re-fire on scroll back); steps[0].classList.add('active') on load so section doesn't render all-dim; gsap.matchMedia() ctx with return()=>{}; reduced-motion path skips state machine and sets all steps to opacity 1; max-width:none overrides typography.css p constraint; -webkit-line-clamp:4 CMS protection; hyphens:none on title; &ndash; for day ranges; &amp; for ampersands in headings; <ol> + role="list" for semantic timeline; aria-hidden="true" on num-wrap columns; note: build order lists this as Session 12 but user explicitly built it in Session 10
+Exit checks: 53/53 PASS (custom), 17/17 PASS (section-process.md spec)
+Spec deviations (intentional): <ol>/<li> vs spec <div> (semantic upgrade); clamp() on num font-size vs spec static 64px (ui-typography rule); editorial copy rewrite; aria-hidden on num-wrap (accessibility addition); data-step 0-indexed vs spec 1-indexed (JS uses forEach index, functionally identical)
 
 ### Session 1 — 2026-05-18
 Task: Project setup

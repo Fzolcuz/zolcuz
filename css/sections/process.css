@@ -1,0 +1,206 @@
+/* Process Section — Session 10 */
+/* Owns: .process, .process__inner, .process__header, .process__timeline,  */
+/*       .process-step, .process-step__num-wrap, .process-step__num,        */
+/*       .process-step__line, .process-step__body, .process-step__period,   */
+/*       .process-step__title, .process-step__desc                          */
+/* .section-grain::after defined in design-quality-and-taste.md (global)   */
+/* typography.css owns h2 font-size / weight — this file owns layout only  */
+/* .process-step__title overrides h3 size for editorial display treatment   */
+
+/* ─── Section shell ──────────────────────────────────────────────────────── */
+/* position:relative REQUIRED — section-grain::after is position:absolute   */
+/* overflow:hidden REQUIRED — contain grain pseudo-element                  */
+/* var(--bg-1) — alternates from retention's var(--bg-0) for section rhythm */
+.process {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-14) 0;
+  background: var(--bg-1);
+}
+
+/* ─── Inner container ────────────────────────────────────────────────────── */
+/* max-width:760px — intentionally narrow for long-form editorial readability */
+.process__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+/* .label (typography.css) — uppercase + tracking + teal colour              */
+.process__header {
+  margin-bottom: 64px;
+}
+
+.process__header > .label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.process__header > h2 {
+  margin: 0;
+  color: var(--text-0);
+}
+
+/* ─── Timeline ───────────────────────────────────────────────────────────── */
+.process__timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Step — base (dim / future) ─────────────────────────────────────────── */
+/* Default state: 35% opacity — future steps not yet reached                */
+/* CSS transition owns the opacity animation — not GSAP (state-based toggle) */
+/* cubic-bezier(0.05,0.7,0.1,1.0) — project CSS entrance curve throughout   */
+/* transform + opacity only — never animate layout properties               */
+.process-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding-bottom: 48px;
+  opacity: 0.35;
+  transition: opacity 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+/* ─── Step — done (past) ─────────────────────────────────────────────────── */
+/* Past steps dim to 60% — acknowledged but no longer the focus             */
+.process-step.done {
+  opacity: 0.6;
+}
+
+/* ─── Step — active (current) ───────────────────────────────────────────── */
+/* Current step at full opacity — scroll illumination hero state            */
+.process-step.active {
+  opacity: 1;
+}
+
+/* ─── Number wrap — column containing num + connector line ──────────────── */
+.process-step__num-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── Decorative numeral — 01–04 ─────────────────────────────────────────── */
+/* Cormorant Garamond display numerals — editorial anchor for each step     */
+/* clamp() required per ui-typography rules — no static pixel display sizes */
+/* opacity: 0.3 default — fades in to 1.0 when step becomes active         */
+/* transition on opacity + color — not on layout properties                 */
+.process-step__num {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  opacity: 0.3;
+  transition:
+    opacity 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0),
+    color   400ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+  /* tabular-nums — consistent numeral width, no layout shift between states */
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.process-step.active .process-step__num {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* ─── Connector line — vertical rule between steps ──────────────────────── */
+/* flex:1 fills remaining height of num-wrap column                         */
+/* Hidden on last step — no connector after final entry                     */
+.process-step__line {
+  flex: 1;
+  width: 1px;
+  background: var(--border-subtle);
+  margin-top: 8px;
+}
+
+.process-step:last-child .process-step__line {
+  display: none;
+}
+
+/* ─── Body — content column ──────────────────────────────────────────────── */
+.process-step__body {
+  padding-top: 4px;
+}
+
+/* ─── Period label — "Days 1–3" etc ──────────────────────────────────────── */
+/* All-caps short label — 5–12% letterspacing required (ui-typography rule) */
+/* font-size: 11px — micro UI label, acceptable below clamp threshold       */
+.process-step__period {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ─── Step title — h3 display override ──────────────────────────────────── */
+/* typography.css owns h3 globally — this file overrides for editorial size */
+/* clamp() required per ui-typography — no static 28px display sizes       */
+/* hyphens:none — headings must not hyphenate (ui-typography rule)          */
+/* margin:0 — spacing owned here, not typography.css                       */
+.process-step__title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  color: var(--text-0);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  hyphens: none;
+}
+
+/* ─── Description ────────────────────────────────────────────────────────── */
+/* max-width:none — overrides typography.css p{max-width:65ch}              */
+/* -webkit-line-clamp:4 — CMS protection against runaway copy (spec rule)   */
+.process-step__desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-1);
+  line-height: 1.7;
+  margin: 0;
+  max-width: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+/* Grid 80px 1fr handles 390px naturally — inner max-width is 760px         */
+/* Reduce vertical spacing + tighten num column at small sizes              */
+@media (max-width: 768px) {
+  .process {
+    padding: var(--space-10) 0;
+  }
+
+  .process__header {
+    margin-bottom: 48px;
+  }
+
+  .process-step {
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+    padding-bottom: 36px;
+  }
+
+  /* Numerals scale down via clamp() automatically */
+  /* Tighter padding on inner at narrow viewports  */
+  .process__inner {
+    padding: 0 20px;
+  }
+}
+
+/* ─── Reduced motion — CSS fallback ─────────────────────────────────────── */
+/* JS matchMedia ctx also handles this — belt and braces                    */
+@media (prefers-reduced-motion: reduce) {
+  .process-step,
+  .process-step__num {
+    transition-duration: 0.01ms;
+  }
+}
