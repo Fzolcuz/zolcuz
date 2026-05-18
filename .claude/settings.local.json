@@ -4,7 +4,10 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(grep -q \"^\\\\.env$\" .gitignore)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(git push *)",
+      "Bash(gh pr create --title 'Session 1: Project setup — folder structure, design tokens, index.html, vercel.json' --body ' *)",
+      "PowerShell(Get-Command gh -ErrorAction SilentlyContinue)"
     ]
   }
 }
