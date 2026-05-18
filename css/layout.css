@@ -15,40 +15,4 @@
 #phoenix-canvas.interactive {
   pointer-events: auto;
 }
-
-/* ─── Service Reveal Overlay ─────────────────────────────────────────────── */
-/* Positioned at top of viewport; phoenix-scene.js drives visibility */
-#service-reveal {
-  position: fixed;
-  top: var(--space-8);
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(11, 11, 12, 0.85);
-  border: 1px solid var(--border-strong);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: var(--space-3) var(--space-4);
-  border-radius: 4px;
-  text-align: center;
-  max-width: 360px;
-  z-index: var(--z-reveal);
-  visibility: hidden;
-  opacity: 0;
-  transform: translateX(-50%) translateY(8px);
-  pointer-events: none;
-}
-
-.reveal__title {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-0);
-  margin-bottom: var(--space-1);
-}
-
-.reveal__body {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--text-2);
-  line-height: 1.5;
-}
+/* Service reveal styles live in css/sections/hero.css */

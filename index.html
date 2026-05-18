@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="/css/components/buttons.css">
   <link rel="stylesheet" href="/css/components/nav.css">
   <link rel="stylesheet" href="/css/sections/loader.css">
+  <link rel="stylesheet" href="/css/sections/hero.css">
 
   <!-- Cloudflare Turnstile (forms — necessary category, no consent required) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -95,18 +96,8 @@
     </div>
   </div>
 
-  <!-- AVIF fallback — shown if WebGL fails entirely -->
-  <img id="phoenix-fallback" src="/assets/img/phoenix-poster.avif"
-    alt="Phoenix — ZOLCUZ Studios" style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:var(--z-content)">
-
   <!-- Phoenix canvas — Three.js mounts here after loader ends -->
   <canvas id="phoenix-canvas" aria-label="Interactive 3D phoenix — hover to explore ZOLCUZ services" role="img"></canvas>
-
-  <!-- Service reveal — shown on phoenix hover zones -->
-  <div id="service-reveal" role="status" aria-live="polite" aria-atomic="true">
-    <p class="reveal__title"></p>
-    <p class="reveal__body"></p>
-  </div>
 
   <!-- Global cursor (desktop only, outside Three.js canvas) -->
   <div class="cursor-global" aria-hidden="true"></div>
@@ -121,10 +112,76 @@
   </div>
 
   <!-- Navigation -->
-  <!-- Full HTML from ui-chrome-compliance.md goes here -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__pill">
+      <a href="#hero" class="nav__logo">ZOLCUZ</a>
+      <ul class="nav__links" role="list">
+        <li><a href="#niches">Work</a></li>
+        <li><a href="#niches">Niches</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#packages">Pricing</a></li>
+      </ul>
+      <div class="nav__right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+          <span class="theme-toggle__knob"></span>
+        </button>
+        <a href="#packages" class="nav__cta button-primary">Book a Call</a>
+        <button class="nav__toggle" id="nav-toggle"
+          aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul class="mobile-menu__links" role="list">
+      <li><a href="#niches">Work</a></li>
+      <li><a href="#niches">Niches</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#packages">Pricing</a></li>
+    </ul>
+    <a href="#packages" class="mobile-menu__cta button-primary">Book a Call</a>
+  </div>
+
+  <a href="#packages" class="mobile-cta-sticky button-primary" aria-label="Book a consultation">Book a Call</a>
 
   <main id="main-content" class="main-content">
-    <!-- Hero section — each section added as built, in build order from CLAUDE.md -->
+
+    <!-- ── Session 5: Hero ────────────────────────────────────────────────── -->
+    <section class="hero-section section-grain" id="hero">
+      <!-- WebGL fallback — shown by activateFallback() in phoenix-scene.js -->
+      <div id="phoenix-fallback" class="hero-section__fallback" style="display:none">
+        <img src="/assets/img/phoenix-poster.avif"
+          alt="ZOLCUZ Studios — premium animated web design for luxury home improvement brands"
+          width="1200" height="900">
+      </div>
+
+      <!-- Hero copy — revealed by revealHero() after phoenix GPU pre-warm -->
+      <div class="hero-section__overlay">
+        <span class="hero-section__kicker">Premium Animated Web Design</span>
+        <h1 class="hero-section__headline">Websites That<br>Command Premium</h1>
+        <p class="hero-section__sub">Scroll-driven cinematic experiences for luxury home improvement brands in the US and UK.</p>
+        <div class="hero-section__cta-row">
+          <a href="#packages" class="button-primary">Request Your Concept Sprint</a>
+        </div>
+        <p class="hero-section__micro">48-hour concept sprint &mdash; No long-term contract</p>
+      </div>
+
+      <!-- Service reveal — wrapper centres vertically via flexbox, GSAP animates inner card only -->
+      <div class="service-reveal-wrap">
+        <div id="service-reveal" class="service-reveal" aria-live="polite" role="status">
+          <p class="reveal__title"></p>
+          <p class="reveal__body"></p>
+        </div>
+      </div>
+
+      <div class="cursor-dot" aria-hidden="true"></div>
+    </section>
+
+    <!-- Sections added here in build order as sessions complete -->
+
   </main>
 
   <!-- No JavaScript fallback -->
@@ -140,9 +197,6 @@
       </div>
     </div>
   </noscript>
-
-  <!-- Section CSS files (loaded as sections are built) -->
-  <!-- <link rel="stylesheet" href="/css/sections/hero.css"> -->
 
   <!-- Animation libraries — end of body, this exact order -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>

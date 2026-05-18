@@ -32,6 +32,12 @@ input, button, textarea, select {
   font: inherit;
 }
 
+/* iOS Safari zoom fix — auto-zoom fires when font-size < 16px */
+/* Required on every input, select, textarea — non-negotiable */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }

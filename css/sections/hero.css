@@ -1,0 +1,183 @@
+/* Hero Section — Session 5 */
+/* Owns: .hero-section, .hero-section__*, .service-reveal-wrap, .service-reveal, .reveal__* */
+/* Does NOT own: #phoenix-canvas (layout.css), .cursor-dot (design-quality-and-taste.md) */
+
+/* ─── Hero section ───────────────────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg-0);
+  overflow: hidden;
+  /* Canvas is position:fixed — sits above via z-index. Do NOT set z-index here. */
+}
+
+/* ─── Grain overlay ──────────────────────────────────────────────────────── */
+.section-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/img/noise.png');
+  background-repeat: repeat;
+  background-size: 180px;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── WebGL fallback ─────────────────────────────────────────────────────── */
+.hero-section__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-content);
+}
+
+.hero-section__fallback img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ─── Overlay — hero copy ────────────────────────────────────────────────── */
+/* Starts hidden — revealHero() in phoenix-scene.js animates to autoAlpha:1 */
+.hero-section__overlay {
+  position: absolute;
+  bottom: 12%;
+  left: 6%;
+  z-index: var(--z-content);
+  max-width: 520px;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* CTA inside overlay must remain clickable */
+.hero-section__overlay .button-primary {
+  pointer-events: auto;
+}
+
+/* ─── Kicker ─────────────────────────────────────────────────────────────── */
+.hero-section__kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+}
+
+.hero-section__kicker::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── Headline — 88px desktop ────────────────────────────────────────────── */
+.hero-section__headline {
+  font-family: var(--font-display);
+  font-size: 88px;
+  line-height: 0.95;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-0);
+  margin-bottom: 20px;
+}
+
+/* ─── Sub ────────────────────────────────────────────────────────────────── */
+.hero-section__sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-1);
+  max-width: 420px;
+  margin-bottom: 28px;
+}
+
+/* ─── CTA row ────────────────────────────────────────────────────────────── */
+.hero-section__cta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ─── Micro copy ─────────────────────────────────────────────────────────── */
+.hero-section__micro {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-top: 10px;
+  font-family: var(--font-body);
+}
+
+/* ─── Service reveal — wrapper + card ───────────────────────────────────── */
+/* Wrapper handles vertical centering via flexbox — no CSS transform needed.  */
+/* GSAP animates .service-reveal (inner card) only — y offset never conflicts. */
+.service-reveal-wrap {
+  position: absolute;
+  top: 0;
+  right: 6%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: var(--z-reveal);
+  pointer-events: none;
+}
+
+.service-reveal {
+  max-width: 280px;
+  background: rgba(11,11,12,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-left: 2px solid var(--accent);
+  padding: 20px 24px;
+  border-radius: 4px;
+  /* GSAP autoAlpha owns opacity + visibility — start fully hidden */
+  visibility: hidden;
+  opacity: 0;
+  /* Initial y offset — GSAP animates to 0 on hover */
+  transform: translateY(8px);
+}
+
+.reveal__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-0);
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.reveal__body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-1);
+  margin: 0;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-section__headline {
+    font-size: 48px;
+  }
+
+  .hero-section__overlay {
+    bottom: 100px;
+    left: 5%;
+    right: 5%;
+    max-width: 100%;
+  }
+
+  /* Service reveal hidden on mobile — touch users can't hover */
+  .service-reveal-wrap { display: none; }
+}

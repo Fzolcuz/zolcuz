@@ -1,0 +1,170 @@
+/* Navigation — Session 4 */
+
+/* ─── Floating pill nav ──────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: var(--z-nav);
+  padding: 24px 24px 0;
+  pointer-events: none;
+}
+
+.nav__pill {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; gap: 32px;
+  background: rgba(11,11,12,0.4);
+  border: 1px solid transparent; border-radius: 100px; height: 56px;
+  pointer-events: auto;
+  transition: background 300ms ease, border-color 300ms ease;
+}
+
+.nav.scrolled .nav__pill {
+  background: rgba(11,11,12,0.85);
+  border-color: var(--border-subtle);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav__logo {
+  font-family: var(--font-display); font-size: 18px; font-weight: 600;
+  color: var(--text-0); letter-spacing: 0.08em;
+}
+
+.nav__links { display: flex; gap: 32px; margin: 0 auto; padding: 0; }
+
+.nav__links a {
+  font-family: var(--font-body); font-size: 14px; font-weight: 500;
+  color: var(--text-1); transition: color 200ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav__links a:hover { color: var(--text-0); }
+}
+
+.nav__right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+
+.nav__cta { font-size: 14px; padding: 10px 20px; min-height: 40px; }
+
+.nav__toggle {
+  display: none; flex-direction: column; gap: 5px;
+  padding: 8px; min-width: 44px; min-height: 44px;
+  align-items: center; justify-content: center;
+}
+
+.nav__toggle-bar {
+  display: block; width: 22px; height: 2px;
+  background: var(--text-0);
+  transition: transform 300ms, opacity 300ms;
+}
+
+/* Hamburger → ✕ animation */
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__toggle { display: flex; }
+}
+
+/* ─── Mobile fullscreen menu ─────────────────────────────────────────────── */
+.mobile-menu {
+  position: fixed; inset: 0;
+  background: rgba(11,11,12,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: var(--z-mobile-menu);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 32px;
+  opacity: 0; pointer-events: none; visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+.mobile-menu.open { opacity: 1; pointer-events: auto; visibility: visible; }
+
+.mobile-menu__links {
+  text-align: center; display: flex;
+  flex-direction: column; gap: 8px;
+}
+
+.mobile-menu__links a {
+  font-family: var(--font-display); font-size: 40px; font-weight: 600;
+  color: var(--text-0); display: block; padding: 8px 0;
+}
+
+.mobile-menu__cta { font-size: 16px; padding: 14px 32px; }
+
+/* ─── Sticky mobile CTA ───────────────────────────────────────────────────── */
+.mobile-cta-sticky {
+  position: fixed; bottom: 16px; left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-mobile-cta);
+  display: none; white-space: nowrap;
+}
+
+@media (max-width: 768px) { .mobile-cta-sticky { display: block; } }
+
+/* ─── Theme toggle ────────────────────────────────────────────────────────── */
+.theme-toggle {
+  width: 44px; height: 24px;
+  background: var(--border-strong);
+  border-radius: 100px; position: relative;
+  transition: background 300ms;
+  min-width: 44px;
+}
+
+.theme-toggle__knob {
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  background: var(--accent); border-radius: 50%;
+  transition: transform 300ms cubic-bezier(0.4,0,0.2,1);
+}
+
+[data-theme="light"] .theme-toggle__knob { transform: translateX(20px); }
+
+/* ─── Theme transition — cross-fade colors ───────────────────────────────── */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition:
+    background-color 300ms cubic-bezier(0.25,0.1,0.25,1),
+    border-color 300ms cubic-bezier(0.25,0.1,0.25,1),
+    color 300ms cubic-bezier(0.25,0.1,0.25,1) !important;
+}
+
+/* ─── GDPR consent banner ────────────────────────────────────────────────── */
+.consent-banner {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  max-width: 480px; width: calc(100% - 48px);
+  background: var(--surface-1);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px; padding: 16px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  z-index: var(--z-nav);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.consent-banner__text {
+  font-family: var(--font-body); font-size: 13px;
+  color: var(--text-1); line-height: 1.5;
+}
+
+.consent-banner__actions {
+  display: flex; gap: 12px; justify-content: flex-end;
+}
+
+.consent-banner__accept { font-size: 13px; padding: 8px 16px; min-height: 36px; }
+
+.consent-banner__decline {
+  font-family: var(--font-body); font-size: 13px;
+  color: var(--text-2); padding: 8px; cursor: pointer;
+  background: none; border: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .consent-banner__decline:hover { color: var(--text-0); }
+}
