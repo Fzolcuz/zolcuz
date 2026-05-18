@@ -20,7 +20,13 @@
       "Read(//c/zolcuz website/.agents/skills/design-audit/**)",
       "Read(//c/zolcuz website/.agents/skills/ui-typography/**)",
       "Skill(impeccable)",
-      "Skill(impeccable:*)"
+      "Skill(impeccable:*)",
+      "Bash(gh --version)",
+      "Bash(gh pr create --title 'Sessions 5–6 + typography fix: hero overlay, problem section, type system' --body ' *)",
+      "Bash(where gh *)",
+      "Bash(powershell -Command \"Get-Command gh -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\GitHub CLI\\\\\", \"C:\\\\Users\\\\zolcuz\\\\AppData\\\\Local\\\\Programs\\\\gh\\\\\", \"$env:LOCALAPPDATA\\\\Programs\\\\GitHub CLI\\\\\" -Filter \"gh.exe\" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)",
+      "Bash(git fetch *)"
     ]
   }
 }

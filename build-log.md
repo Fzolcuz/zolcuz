@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: problem
-Last completed: problem
+Current section: how-it-works
+Last completed: how-it-works
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -12,6 +12,7 @@ Last completed: problem
 - Session 4: Navigation (2026-05-18)
 - Session 5: Hero overlay (2026-05-18)
 - Session 6: Problem section (2026-05-18)
+- Session 7: How It Works section (2026-05-18)
 
 ## Session Log
 
@@ -78,3 +79,11 @@ Files modified: index.html (section HTML + problem.css link), js/app.js (import 
 Decisions: cubic-bezier(0.05,0.7,0.1,1.0) replaces bare ease on CSS transitions per session directive; max-width:none on .problem__line overrides typography.css p constraint; border-left 2px used as state indicator (inactive→active) per section spec — flagged impeccable conflict, project spec takes precedence; gsap.matchMedia() ctx with return()=>revert() for leak-safe cleanup; autoAlpha not opacity; once:true on all ScrollTriggers; curly apostrophes via &rsquo;
 Exit checks: 34/34 PASS
 Word count: 34 words (under 40-word ceiling)
+
+### Session 7 — 2026-05-18
+Task: How It Works section
+Status: complete
+Files created: css/sections/how.css, js/sections/how.js (js/sections/ dir already exists)
+Files modified: index.html (section HTML + how.css link), js/app.js (import + initHow() call), build-log.md
+Decisions: var(--bg-1) alternates from problem (var(--bg-0)) for section rhythm; clamp(48px, 6vw, 72px) on .how-step__num (ui-typography clamp() rule); aria-hidden="true" on decorative numerals; max-width:none on .how-step__desc overrides typography.css p constraint; -webkit-line-clamp:5 CMS protection per spec; gsap.matchMedia() ctx with return()=>{}; autoAlpha not opacity; once:true; power3.out; h3 font-size owned by typography.css — this file spacing only; &mdash; in step-02 copy per spec
+Exit checks: 26/26 PASS
