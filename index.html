@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/components/buttons.css">
   <link rel="stylesheet" href="/css/components/nav.css">
+  <link rel="stylesheet" href="/css/sections/loader.css">
 
   <!-- Cloudflare Turnstile (forms — necessary category, no consent required) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -60,7 +61,31 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Loader (first thing user sees — removed from DOM after hero reveal) -->
-  <!-- Full HTML from phoenix-loader.md goes here -->
+  <div id="loader" class="loader">
+    <div class="loader__square">
+      <video id="phoenix-video" class="loader__video"
+        playsinline muted preload="auto"
+        poster="/assets/img/phoenix-poster.avif">
+        <source src="/assets/video/phoenix-loader.webm" type="video/webm">
+        <source src="/assets/video/phoenix-loader.mp4" type="video/mp4">
+      </video>
+      <svg class="loader__border" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <rect class="loader__border-path" x="1" y="1" width="98" height="98"
+          fill="none" stroke="#0D9488" stroke-width="0.5"
+          stroke-dasharray="392" stroke-dashoffset="392"/>
+      </svg>
+    </div>
+    <div id="tap-prompt" class="loader__tap-prompt" style="display:none">
+      <div class="loader__tap-inner">
+        <img src="/assets/img/phoenix-poster.avif" alt="" class="loader__tap-bg">
+        <button class="loader__tap-btn" id="tap-to-start">
+          <span class="loader__tap-icon">▶</span>
+          <span class="loader__tap-text">Tap to begin</span>
+        </button>
+      </div>
+    </div>
+    <canvas id="supernova-canvas" class="loader__supernova"></canvas>
+  </div>
 
   <!-- Phoenix canvas — Three.js mounts here after loader ends -->
   <canvas id="phoenix-canvas" aria-label="Interactive 3D phoenix — hover to explore ZOLCUZ services" role="img"></canvas>
@@ -107,6 +132,9 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
+
+  <!-- Loader — runs after GSAP is available -->
+  <script src="/js/loader.js"></script>
 
   <!-- App entry point -->
   <script type="module" src="/js/app.js"></script>
