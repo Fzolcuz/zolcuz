@@ -1,0 +1,90 @@
+/* ZOLCUZ Design Tokens — single source of truth */
+
+:root {
+  color-scheme: light dark;
+
+  /* Fonts */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* Teal-emerald scale */
+  --teal-500: #0D9488;
+  --teal-700: #0F766E;
+  --teal-900: #134E4A;
+  --teal-glow: rgba(13, 148, 136, 0.35);
+
+  /* Gold secondary */
+  --gold-400: #D6B46B;
+  --gold-600: #B45309;
+  --gold-800: #92400E;
+
+  /* Crimson tertiary */
+  --crimson-600: #9F1239;
+  --crimson-800: #7F1D1D;
+
+  /* Niche accents — dividers and micro-icons only */
+  --niche-kitchen:  #8B3B2C;
+  --niche-theater:  #1E2B44;
+  --niche-closet:   #9AA3A9;
+  --niche-bathroom: #2F6F6D;
+  --niche-windows:  #244836;
+
+  /* Spacing scale (8px base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-14: 112px;
+
+  /* Z-index scale */
+  --z-canvas:      1;
+  --z-content:     10;
+  --z-reveal:      20;
+  --z-nav:         100;
+  --z-mobile-cta:  150;
+  --z-mobile-menu: 200;
+  --z-loader:      9999;
+  --z-supernova:   10000;
+  --z-tap-prompt:  10001;
+  --z-cursor:      99999;
+
+  /* Section stacking */
+  --section-z: 2;
+}
+
+:root[data-theme="dark"] {
+  --bg-0: #030712;
+  --bg-1: #0B0B0C;
+  --surface-0: #111113;
+  --surface-1: #151518;
+  --border-subtle: #1B1B20;
+  --border-strong: #24242A;
+  --text-0: #F5F1E8;
+  --text-1: #CFC8BB;
+  --text-2: #A7A195;
+  --accent: #0D9488;
+  --accent-hover: #0F766E;
+  --accent-glow: rgba(13, 148, 136, 0.35);
+  --accent-gold: #D6B46B;
+  --accent-crimson: #9F1239;
+}
+
+:root[data-theme="light"] {
+  --bg-0: #F5F0E6;
+  --bg-1: #EBE3D5;
+  --surface-0: #FEFCF9;
+  --surface-1: #F7F3EB;
+  --border-subtle: #D6CBBA;
+  --border-strong: #C4B7A3;
+  --text-0: #1A1A1B;
+  --text-1: #3A3A3D;
+  --text-2: #636366;
+  --accent: #0D9488;
+  --accent-hover: #0F766E;
+  --accent-glow: rgba(13, 148, 136, 0.25);
+  --accent-gold: #B45309;
+  --accent-crimson: #7F1D1D;
+}
