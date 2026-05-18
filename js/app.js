@@ -1,7 +1,8 @@
 // app.js — entry point (ES module)
 // Runs after all CDN scripts have loaded (end of body)
 
-import { initNav } from '/js/nav.js';
+import { initNav }     from '/js/nav.js';
+import { initProblem } from '/js/sections/problem.js';
 // lenis-init.js is imported by nav.js — Lenis starts on first import
 
 // 1. Unhide main content immediately — boot failsafe removal
@@ -17,14 +18,18 @@ initNav();
 
 // 4. Section animation init — called after fonts are ready
 function initAnimations() {
-  // Import and call each section's animation init in build order:
-  // initHeroAnimations();       // section-hero-phoenix.md
-  // initHowItWorksAnimations(); // section-how-it-works.md
-  // initNichesAnimations();     // section-niches.md
-  // initCounters();             // section-retention-stats.md
-  // initAutomation();           // section-automation.md
-  // initProcessTimeline();      // section-process.md
-  // Add each as sections are built
+  // Build order — uncomment as each section is completed:
+  // initHeroAnimations();       // session-5  — section-hero-phoenix.md
+  initProblem();                 // session-6  — section-problem.md
+  // initHowItWorks();           // session-7  — section-how-it-works.md
+  // initNiches();               // session-8  — section-niches.md
+  // initCounters();             // session-9  — section-retention-stats.md
+  // initAutomation();           // session-10 — section-automation.md
+  // initAiAssistant();          // session-11 — section-ai-assistant.md
+  // initProcess();              // session-12 — section-process.md
+  // initPackages();             // session-13 — section-packages.md
+  // initAbout();                // session-14 — section-about.md
+  // initFooter();               // session-15 — section-footer.md
 }
 
 // 5. Wait for fonts, then init section animations

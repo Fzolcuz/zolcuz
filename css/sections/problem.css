@@ -1,0 +1,92 @@
+/* Problem Section — Session 6 */
+/* Owns: .problem, .problem__inner, .problem__h2, .problem__lines, .problem__line */
+/* .section-grain::after defined in hero.css (global utility) — requires position:relative here */
+/* typography.css owns font-size/weight/tracking on h2 — this file owns spacing only */
+
+/* ─── Section shell ──────────────────────────────────────────────────────── */
+/* position:relative REQUIRED — section-grain::after is position:absolute */
+/* overflow:hidden REQUIRED — contain the grain pseudo-element */
+.problem {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-14) 0;
+  background: var(--bg-0);
+}
+
+/* ─── Inner container ────────────────────────────────────────────────────── */
+/* 760px max — wide enough for three full pain lines, narrow enough to feel editorial */
+.problem__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Eyebrow ────────────────────────────────────────────────────────────── */
+/* .label class (typography.css) provides uppercase + tracking + teal colour */
+/* display:block promotes inline span to block for correct margin-bottom */
+.problem__inner > .label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* ─── H2 — spacing only ──────────────────────────────────────────────────── */
+/* typography.css h2 selector owns size / weight / line-height / tracking */
+.problem__h2 {
+  margin-top: 0;
+  margin-bottom: 48px;
+  color: var(--text-0);
+}
+
+/* ─── Lines container ────────────────────────────────────────────────────── */
+.problem__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Individual pain line — inactive (default) state ───────────────────── */
+/* border-left: state indicator only — subtle at rest, teal on scroll entry  */
+/* max-width:none — overrides typography.css p{max-width:65ch}; section owns measure */
+/* Transition uses project entrance cubic-bezier — never bare 'ease' or 'linear' */
+.problem__line {
+  font-family: var(--font-body);
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.6;
+  color: var(--text-1);
+  max-width: none;
+  padding-left: 24px;
+  border-left: 2px solid var(--border-subtle);
+  margin: 0;
+  transition:
+    border-color 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0),
+    color        400ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+/* ─── Active state — applied by ScrollTrigger onEnter ───────────────────── */
+.problem__line.active {
+  border-left-color: var(--accent);
+  color: var(--text-0);
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .problem {
+    padding: var(--space-10) 0;
+  }
+
+  .problem__h2 {
+    margin-bottom: 32px;
+  }
+
+  .problem__lines {
+    gap: 20px;
+  }
+}
+
+/* ─── Reduced motion — CSS fallback ─────────────────────────────────────── */
+/* JS matchMedia ctx also handles this — belt and braces */
+@media (prefers-reduced-motion: reduce) {
+  .problem__line {
+    transition-duration: 0.01ms;
+  }
+}
