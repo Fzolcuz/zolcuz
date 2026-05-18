@@ -121,7 +121,40 @@
   </div>
 
   <!-- Navigation -->
-  <!-- Full HTML from ui-chrome-compliance.md goes here -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__pill">
+      <a href="#hero" class="nav__logo">ZOLCUZ</a>
+      <ul class="nav__links" role="list">
+        <li><a href="#niches">Work</a></li>
+        <li><a href="#niches">Niches</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#packages">Pricing</a></li>
+      </ul>
+      <div class="nav__right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+          <span class="theme-toggle__knob"></span>
+        </button>
+        <a href="#packages" class="nav__cta button-primary">Book a Call</a>
+        <button class="nav__toggle" id="nav-toggle"
+          aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul class="mobile-menu__links" role="list">
+      <li><a href="#niches">Work</a></li>
+      <li><a href="#niches">Niches</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#packages">Pricing</a></li>
+    </ul>
+    <a href="#packages" class="mobile-menu__cta button-primary">Book a Call</a>
+  </div>
+
+  <a href="#packages" class="mobile-cta-sticky button-primary" aria-label="Book a consultation">Book a Call</a>
 
   <main id="main-content" class="main-content">
     <!-- Hero section — each section added as built, in build order from CLAUDE.md -->
