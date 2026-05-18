@@ -1,0 +1,284 @@
+/* Niches Section — Session 8 */
+/* Owns: .niches, .niches__header, .niches__grid, .niche-card, .niche-card__media, */
+/*       .niche-card__body, .niche-card__label, .niche-card__title,                */
+/*       .niche-card__desc, .niche-card__coming-soon, .pill-badge                  */
+/* .section-grain::after defined in hero.css (global utility) — requires position:relative here */
+/* typography.css owns h3 font-size / weight / line-height / tracking — this file owns layout  */
+
+/* ─── CSS variable — niche accent ────────────────────────────────────────── */
+/* --niche-active: initialised to kitchen (#8B3B2C) in HTML + JS init         */
+/* Updated on card click via document.documentElement.style.setProperty       */
+/* Used for label colour + coming-soon badge — NEVER as CTA fill (spec rule)  */
+
+/* ─── Section shell ──────────────────────────────────────────────────────── */
+/* position:relative REQUIRED — section-grain::after is position:absolute     */
+/* overflow:hidden REQUIRED — contain grain pseudo-element                    */
+/* var(--bg-0) alternates back from how's var(--bg-1) for section rhythm      */
+.niches {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-14) 0;
+  background: var(--bg-0);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+/* .label (typography.css) provides uppercase + tracking + teal colour        */
+.niches__header {
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  padding: 0 24px;
+}
+
+.niches__header > .label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.niches__header > h2 {
+  margin: 0;
+  color: var(--text-0);
+}
+
+/* ─── Grid — interactive accordion flex ─────────────────────────────────── */
+/* Active card is 2.5× wider — CSS transition handles flex reflow             */
+/* No GSAP on flex values — layout properties are banned from JS animation    */
+/* min-height keeps the grid stable while flex values transition              */
+.niches__grid {
+  display: flex;
+  gap: 12px;
+  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+  min-height: 520px;
+}
+
+/* ─── Card — base (inactive) ─────────────────────────────────────────────── */
+/* flex:1 — equal share of available width when inactive                     */
+/* border-radius:4px — barely-there rounding; editorial, not rounded-card    */
+/* outline:none — custom focus-visible ring handles keyboard state           */
+.niche-card {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-0);
+  border: 1px solid var(--border-subtle);
+  outline: none;
+  transition: flex 500ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+/* Focus ring — keyboard navigation */
+.niche-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ─── Card — active state ────────────────────────────────────────────────── */
+/* flex:2.5 — active card occupies 2.5× the width of an inactive card        */
+.niche-card.active {
+  flex: 2.5;
+}
+
+/* ─── Media wrapper ──────────────────────────────────────────────────────── */
+/* Aspect ratios differ: active (portrait 3:4), inactive (square 1:1)        */
+/* transition on aspect-ratio — CSS handles the shape change, not GSAP       */
+.niche-card__media {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: aspect-ratio 500ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+.niche-card.active .niche-card__media {
+  aspect-ratio: 3 / 4;
+}
+
+.niche-card:not(.active) .niche-card__media {
+  aspect-ratio: 1 / 1;
+  flex: 1;
+}
+
+/* Image — covers wrapper, smooth scale on hover */
+.niche-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+/* Hover scale — inactive cards only, desktop only (no sticky hover on touch) */
+@media (hover: hover) and (pointer: fine) {
+  .niche-card:not(.active):hover .niche-card__media img {
+    transform: scale(1.04);
+  }
+}
+
+/* ─── Card body ──────────────────────────────────────────────────────────── */
+.niche-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ─── Niche number — 01–05 ───────────────────────────────────────────────── */
+/* clamp() required per ui-typography rules — no static pixel sizes           */
+/* Active card: niche accent colour; inactive: muted (--text-2 or fallback)  */
+.niche-card__label {
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  color: var(--text-2, var(--text-1));
+  transition: color 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+.niche-card.active .niche-card__label {
+  color: var(--niche-active, var(--accent));
+}
+
+/* ─── Niche title — h3 ───────────────────────────────────────────────────── */
+/* typography.css h3 owns font-size / weight / line-height / tracking         */
+/* This file owns margin + colour only                                        */
+.niche-card__title {
+  margin: 0;
+  color: var(--text-0);
+}
+
+/* ─── Description — p ────────────────────────────────────────────────────── */
+/* max-width:none — overrides typography.css p{max-width:65ch}; section owns measure */
+/* -webkit-line-clamp:3 — CMS protection against runaway copy                        */
+/* Hidden on inactive cards via opacity + max-height; shown on active                */
+.niche-card__desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-1);
+  line-height: 1.65;
+  margin: 0;
+  max-width: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition:
+    opacity    400ms cubic-bezier(0.05, 0.7, 0.1, 1.0),
+    max-height 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+.niche-card.active .niche-card__desc {
+  opacity: 1;
+  max-height: 120px;
+}
+
+/* ─── View Demo CTA ──────────────────────────────────────────────────────── */
+/* button-secondary defined in css/components/buttons.css — used verbatim    */
+/* Hidden on inactive cards; revealed + slide-up on active                   */
+.niche-card .button-secondary {
+  align-self: flex-start;
+  margin-top: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity   350ms cubic-bezier(0.05, 0.7, 0.1, 1.0),
+    transform 350ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+.niche-card.active .button-secondary {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ─── Coming soon badge ──────────────────────────────────────────────────── */
+/* Positioned absolute inside the card — top-right corner                    */
+/* Never hides a card — overlaid as a pill per spec                          */
+.niche-card__coming-soon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pill-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: transparent;
+  white-space: nowrap;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+/* Accordion flex collapses to vertical stack — all cards show full body      */
+@media (max-width: 768px) {
+  .niches {
+    padding: var(--space-10) 0;
+  }
+
+  .niches__header {
+    margin-bottom: 40px;
+  }
+
+  .niches__grid {
+    flex-direction: column;
+    gap: 16px;
+    min-height: auto;
+  }
+
+  /* Cards revert to natural height — no accordion on mobile */
+  .niche-card,
+  .niche-card.active {
+    flex: none;
+  }
+
+  /* Uniform 16:9 ratio on all media wrappers — no portrait / square split  */
+  .niche-card.active .niche-card__media,
+  .niche-card:not(.active) .niche-card__media {
+    aspect-ratio: 16 / 9;
+    flex: none;
+  }
+
+  /* All bodies visible on mobile — no hidden desc/CTA behind inactive state */
+  .niche-card__desc {
+    opacity: 1;
+    max-height: none;
+  }
+
+  .niche-card .button-secondary {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+}
+
+/* ─── Reduced motion — CSS fallback ─────────────────────────────────────── */
+/* JS matchMedia ctx also handles this — belt and braces                      */
+@media (prefers-reduced-motion: reduce) {
+  .niche-card,
+  .niche-card__media img,
+  .niche-card__label,
+  .niche-card__desc,
+  .niche-card .button-secondary {
+    transition-duration: 0.01ms;
+  }
+}
