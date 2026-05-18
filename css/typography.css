@@ -1,0 +1,223 @@
+/* ZOLCUZ Typography — generated from typography-and-fonts.md */
+/* Owns: font-family assignments, type scale, line-height, tracking, dark-mode corrections */
+/* Does NOT own: font token definitions (variables.css), component-specific copy (section files) */
+/* Font tokens --font-display / --font-body are defined in variables.css — never redefined here */
+
+/* ─── OpenType features — global ─────────────────────────────────────────── */
+/* Kerning always on. No exceptions. */
+*, *::before, *::after {
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Base font assignments ──────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-0);
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+body, p, a, button, input, select, textarea, label, li {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-0);
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+}
+
+/* ─── Hero H1 — 88px desktop / 48px mobile ───────────────────────────────── */
+/* Use .hero-h1 on any full-bleed headline at hero scale */
+/* hero-section__headline in hero.css also carries these values directly */
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.95;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-0);
+}
+
+/* ─── Section H1 — 56px desktop ──────────────────────────────────────────── */
+/* Section opener headlines — one per section, never two in a viewport */
+.section-h1,
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.10;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-0);
+}
+
+/* ─── H2 ─────────────────────────────────────────────────────────────────── */
+h2 {
+  font-size: clamp(32px, 4vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+/* ─── H3 ─────────────────────────────────────────────────────────────────── */
+h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  line-height: 1.30;
+  letter-spacing: -0.01em;
+}
+
+/* ─── H4 ─────────────────────────────────────────────────────────────────── */
+h4 {
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+/* ─── Body / paragraph ───────────────────────────────────────────────────── */
+/* 65ch measure cap — #1 readability rule. Never edge-to-edge text. */
+body {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-0);
+}
+
+p {
+  font-size: inherit;
+  line-height: 1.75;
+  color: var(--text-1);
+  max-width: 65ch;
+  margin-bottom: 0;
+}
+
+/* ─── Label / eyebrow ────────────────────────────────────────────────────── */
+/* ALL CAPS — always letterspaced. No exceptions. */
+.label,
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;   /* All-caps minimum: 0.06em. Eyebrows use 0.14em. */
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* ─── Caption ────────────────────────────────────────────────────────────── */
+.caption {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.50;
+  font-weight: 400;
+  color: var(--text-2);
+  letter-spacing: 0.01em;   /* Small text — slightly open tracking */
+}
+
+/* ─── Micro copy ─────────────────────────────────────────────────────────── */
+.micro {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.50;
+  font-weight: 400;
+  color: var(--text-2);
+  letter-spacing: 0.01em;
+}
+
+/* ─── Links ──────────────────────────────────────────────────────────────── */
+/* No underline by default — nav.css, section files add underlines only where semantic */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* In-body prose links only — scoped to avoid global overrides */
+.prose a {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .prose a:hover {
+    color: var(--accent-hover);
+  }
+}
+
+/* ─── Strong / em ────────────────────────────────────────────────────────── */
+/* Bold OR italic — never combined (ui-typography rule) */
+strong, b {
+  font-weight: 600;
+  font-style: normal;
+  color: var(--text-0);
+}
+
+em, i {
+  font-style: italic;
+  font-weight: inherit;
+}
+
+/* ─── Code / pre ─────────────────────────────────────────────────────────── */
+code, kbd, samp {
+  font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.9em;
+  color: var(--accent);
+  background: var(--surface-0);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* ─── Lists ──────────────────────────────────────────────────────────────── */
+/* Semantic markup only — ul/ol from reset.css strips list-style */
+/* Section files add their own list styles as needed */
+
+/* ─── Dark mode corrections ──────────────────────────────────────────────── */
+/* Dark: reduce headline weight 600 → 500 to counteract light bloom */
+/* Dark: body line-height adds 2px for legibility on dark backgrounds */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] .hero-h1,
+[data-theme="dark"] .section-h1 {
+  font-weight: 500;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] p {
+  /* +2px above desktop 1.75 = 1.75 + (2/18) ≈ 1.86 */
+  line-height: 1.86;
+}
+
+/* ─── Light mode — restore full weight ───────────────────────────────────── */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] .hero-h1,
+[data-theme="light"] .section-h1 {
+  font-weight: 600;
+}
+
+[data-theme="light"] body,
+[data-theme="light"] p {
+  line-height: 1.75;
+}
+
+/* ─── SplitText compatibility ────────────────────────────────────────────── */
+/* GSAP SplitText wraps chars/words in spans — ensure they inherit correctly */
+/* Never set font-size on .char or .word — GSAP owns those spans */
+.line, .word, .char {
+  display: inline-block; /* required for GSAP y-transforms on SplitText lines */
+}
+
+/* ─── Heading margin reset ───────────────────────────────────────────────── */
+/* reset.css zeroes all margins — headings add spacing via section files only */
+/* Nothing here — section files own spacing context */
