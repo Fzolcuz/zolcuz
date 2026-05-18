@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+
+  <title>ZOLCUZ Studios — Premium Animated Web Design for Luxury Home Improvement Brands</title>
+  <meta name="description" content="Scroll-driven cinematic websites for luxury kitchen, home theater, closet, bathroom, and windows companies in the US and UK.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://zolcuz.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zolcuz.com/">
+  <meta property="og:title" content="ZOLCUZ Studios — Premium Animated Web Design">
+  <meta property="og:description" content="Scroll-driven cinematic websites for luxury home improvement brands.">
+  <meta property="og:image" content="/assets/img/og-image.avif">
+
+  <!-- Theme flash prevention — MUST be first script, inline, before any CSS -->
+  <script>
+    (function(){const t=localStorage.getItem('zolcuz-theme');document.documentElement.setAttribute('data-theme',t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')||'dark');})();
+  </script>
+
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="/assets/img/phoenix-poster.avif" type="image/avif">
+
+  <!-- Google Fonts — must be before CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/typography.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/nav.css">
+
+  <!-- Cloudflare Turnstile (forms — necessary category, no consent required) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- Schema markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ZOLCUZ Studios",
+    "description": "Premium animated web design agency for luxury home improvement brands",
+    "url": "https://zolcuz.com",
+    "serviceType": "Web Design",
+    "areaServed": ["US", "GB"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link — accessibility -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Loader (first thing user sees — removed from DOM after hero reveal) -->
+  <!-- Full HTML from phoenix-loader.md goes here -->
+
+  <!-- Phoenix canvas — Three.js mounts here after loader ends -->
+  <canvas id="phoenix-canvas" aria-label="Interactive 3D phoenix — hover to explore ZOLCUZ services" role="img"></canvas>
+
+  <!-- Global cursor (desktop only, outside Three.js canvas) -->
+  <div class="cursor-global" aria-hidden="true"></div>
+
+  <!-- GDPR consent banner — shown only if no consent recorded yet -->
+  <div id="consent-banner" class="consent-banner" style="display:none;" role="dialog" aria-label="Cookie consent">
+    <p class="consent-banner__text">We use analytics to improve this site. No tracking without your consent.</p>
+    <div class="consent-banner__actions">
+      <button class="consent-banner__accept button-primary" onclick="window.grantConsent(['analytics']); this.closest('#consent-banner').style.display='none';">Accept</button>
+      <button class="consent-banner__decline" onclick="this.closest('#consent-banner').style.display='none';">Decline</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <!-- Full HTML from ui-chrome-compliance.md goes here -->
+
+  <main id="main-content" class="main-content">
+    <!-- Hero section — each section added as built, in build order from CLAUDE.md -->
+  </main>
+
+  <!-- No JavaScript fallback -->
+  <noscript>
+    <div style="position:fixed;inset:0;background:#030712;color:#F5F1E8;display:flex;align-items:center;justify-content:center;padding:40px;font-family:Georgia,serif;text-align:center;z-index:99999;">
+      <div>
+        <h1 style="font-size:32px;margin-bottom:16px;">ZOLCUZ Studios</h1>
+        <p style="font-size:16px;line-height:1.6;color:#CFC8BB;max-width:480px;">Premium animated web design for luxury home improvement brands.<br><br>
+        This site requires JavaScript for the full experience.<br>
+        To speak with us directly:<br><br>
+        <strong style="color:#0D9488;">hello [at] zolcuz [dot] com</strong>
+        </p>
+      </div>
+    </div>
+  </noscript>
+
+  <!-- Section CSS files (loaded as sections are built) -->
+  <!-- <link rel="stylesheet" href="/css/sections/hero.css"> -->
+
+  <!-- Animation libraries — end of body, this exact order -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
+
+  <!-- App entry point -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
