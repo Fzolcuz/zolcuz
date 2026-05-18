@@ -11,7 +11,8 @@
       "Bash(node -e \"const h=require\\('fs'\\).readFileSync\\('index.html','utf8'\\);const w=h.indexOf\\('phoenix-loader.webm'\\);const m=h.indexOf\\('phoenix-loader.mp4'\\);console.log\\(w<m&&w>0?'PASS':'FAIL'\\)\")",
       "Bash(node -e \"const s=require\\('fs'\\).readFileSync\\('js/loader.js','utf8'\\);const rm=s.indexOf\\('prefers-reduced-motion'\\);const dm=s.indexOf\\('deadManTimer'\\);console.log\\(rm<dm&&rm>0?'PASS':'FAIL'\\)\")",
       "Bash(node -e \"const s=require\\('fs'\\).readFileSync\\('js/loader.js','utf8'\\);const dm=s.indexOf\\('safeSupernova',s.indexOf\\('deadManTimer'\\)\\);console.log\\(dm>0?'PASS':'FAIL'\\)\")",
-      "Bash(node -e \"const h=require\\('fs'\\).readFileSync\\('index.html','utf8'\\);const g=h.indexOf\\('gsap@3.12.5'\\);const l=h.lastIndexOf\\('loader.js'\\);console.log\\(l>g?'PASS':'FAIL'\\)\")"
+      "Bash(node -e \"const h=require\\('fs'\\).readFileSync\\('index.html','utf8'\\);const g=h.indexOf\\('gsap@3.12.5'\\);const l=h.lastIndexOf\\('loader.js'\\);console.log\\(l>g?'PASS':'FAIL'\\)\")",
+      "Bash(node -e ' *)"
     ]
   }
 }
