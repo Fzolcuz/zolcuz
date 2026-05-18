@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: niches
-Last completed: niches
+Current section: retention-stats
+Last completed: retention-stats
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -14,6 +14,7 @@ Last completed: niches
 - Session 6: Problem section (2026-05-18)
 - Session 7: How It Works section (2026-05-18)
 - Session 8: Niches section (2026-05-18)
+- Session 9: Retention Stats section (2026-05-18)
 
 ## Session Log
 
@@ -96,3 +97,11 @@ Files created: css/sections/niches.css, js/sections/niches.js
 Files modified: index.html (section HTML + niches.css link), js/app.js (import + initNiches() call), build-log.md
 Decisions: interactive accordion flex — active card flex:2.5, inactive flex:1; CSS transition on flex (not GSAP — layout property rule); var(--niche-active) set on :root via JS, CSS fallback on section element; kitchen loaded on first paint (no lazy), theater/closet/bathroom/windows lazy + requestIdleCallback warming; GSAP cross-fade autoAlpha 0.5 to 1 with power2.out; per-niche colour temperatures per spec (accent only, never CTA fill); keyboard accessible (tabindex=0, Enter/Space handlers); rel=noopener noreferrer on all _blank links; &amp; entities in headings; max-width:none on desc; clamp() on label; pill-badge for coming-soon state; copy sourced from copy-voice-and-vocabulary.md vocabulary
 Exit checks: 49/49 PASS
+
+### Session 9 — 2026-05-18
+Task: Retention Stats section
+Status: complete
+Files created: css/sections/retention.css, js/sections/retention.js
+Files modified: index.html (section HTML + retention.css link), js/app.js (import + initRetention() call), build-log.md
+Decisions: rgba(3,7,18,0.92) background per spec — --bg-0 at 92% opacity for layered depth; centred layout (only section where this is permitted per spec rule); Cormorant Garamond numerals ARE the visual — no charts, no icons; counter pattern exact from signature-animation-moments.md — gsap.from({ val:0 }) with power1.out ease (decelerates toward target); tabular-nums on stat-number for clean counter alignment; writeValue() helper shared between reduced-motion immediate reveal and counter onUpdate; scroll entrance power3.out stagger on stat-blocks, counter trigger per individual stat-block at 'top 70%'; gsap.matchMedia() ctx with return()=>{}; autoAlpha not opacity; once:true; clamp(56px, 8vw, 80px) on stat-number; max-width:none overrides typography.css p constraint; 2.5x block data-decimals="1" confirmed
+Exit checks: 40/40 PASS

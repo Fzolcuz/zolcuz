@@ -1,0 +1,127 @@
+/* Retention Stats Section — Session 9 */
+/* Owns: .retention, .retention__inner, .retention__header,  */
+/*       .retention__grid, .stat-block, .stat-number, .stat-label  */
+/* .section-grain::after defined in design-quality-and-taste.md (global utility) */
+/* typography.css owns h2 font-size / weight — this file owns layout only        */
+
+/* ─── Section shell ──────────────────────────────────────────────────────── */
+/* position:relative REQUIRED — section-grain::after is position:absolute     */
+/* overflow:hidden REQUIRED — contain grain pseudo-element                    */
+/* rgba(3,7,18,0.92) — --bg-0 at 92% opacity, per spec, for layered depth    */
+/* Centred layout — only section where this is acceptable (spec rule)         */
+.retention {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-14) 24px;
+  background: var(--bg-0);
+  background: rgba(3, 7, 18, 0.92);
+  text-align: center;
+}
+
+/* ─── Inner container ────────────────────────────────────────────────────── */
+.retention__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+/* .label (typography.css) provides uppercase + tracking + teal colour        */
+.retention__header {
+  margin-bottom: 64px;
+}
+
+.retention__header > .label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.retention__header > h2 {
+  margin: 0;
+  color: var(--text-0);
+}
+
+/* ─── Grid — flex-wrap, centred ──────────────────────────────────────────── */
+/* Organic wrap avoids banned identical-card-grid pattern                     */
+/* gap: row column — generous horizontal spacing for numeral breathing room   */
+.retention__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 64px 80px;
+}
+
+/* ─── Stat block ─────────────────────────────────────────────────────────── */
+/* Column-flex so numeral stacks over label cleanly                           */
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─── Stat number — Cormorant Garamond numerals ──────────────────────────── */
+/* Cormorant Garamond numerals ARE the visual — no charts, no icons           */
+/* clamp() required per ui-typography rules — no static pixel sizes          */
+/* font-weight: 600 — semi-bold weight gives authority without heaviness      */
+/* line-height: 1 — tighten for display numerals (not running text)           */
+/* color: var(--accent) — teal, never gold (spec rule)                       */
+/* max-width: none — overrides typography.css p{max-width:65ch}              */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 8vw, 80px);
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  margin: 0;
+  max-width: none;
+  /* tabular figures — numerals align cleanly during counter animation       */
+  font-variant-numeric: tabular-nums;
+  /* kern + liga — always on per ui-typography rules                        */
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  /* letter-spacing: none on display numerals — letterspacing is for caps only */
+}
+
+/* ─── Stat label ─────────────────────────────────────────────────────────── */
+/* DM Sans body — legibility at small size, contrast against display numerals */
+/* max-width: 160px — per spec; overrides typography.css p{max-width:65ch}   */
+/* max-width: none on the element level to clear inherited constraint         */
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-2);
+  max-width: 160px;
+  line-height: 1.5;
+  margin: 0;
+  /* clamp fallback for fluid scaling below 768px */
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+/* Tighter gap — 5 stats wrap comfortably on 390px                           */
+/* Numerals scale down automatically via clamp()                             */
+@media (max-width: 768px) {
+  .retention {
+    padding: var(--space-10) 24px;
+  }
+
+  .retention__header {
+    margin-bottom: 48px;
+  }
+
+  .retention__grid {
+    gap: 48px 40px;
+  }
+
+  /* Widen label slightly on mobile so text doesn't orphan badly             */
+  .stat-label {
+    max-width: 200px;
+  }
+}
+
+/* ─── Reduced motion — CSS fallback ─────────────────────────────────────── */
+/* JS matchMedia ctx also handles this — belt and braces                      */
+@media (prefers-reduced-motion: reduce) {
+  .stat-number {
+    transition-duration: 0.01ms;
+  }
+}
