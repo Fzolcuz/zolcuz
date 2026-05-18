@@ -2,14 +2,15 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: navigation
-Last completed: three-js-hero
+Current section: hero-overlay
+Last completed: hero-overlay
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
 - Session 2: loader — two-video sequential (2026-05-18)
 - Session 3: Three.js hero scene (2026-05-18)
 - Session 4: Navigation (2026-05-18)
+- Session 5: Hero overlay (2026-05-18)
 
 ## Session Log
 
@@ -49,4 +50,13 @@ Status: complete
 Files created: css/components/nav.css, js/motion/lenis-init.js, js/nav.js
 Files modified: index.html (nav + mobile menu + mobile-cta-sticky injected), js/app.js (imports nav, calls initNav), css/reset.css (iOS 16px zoom fix), api/submit.js (full Turnstile + Resend implementation)
 Decisions: Lenis as singleton exported from lenis-init.js; nav.js imported by app.js as ES module; window.grantConsent exposed for HTML onclick; email assembled client-side via renderEmail(); theme toggle wired in nav.js
+Issues: none
+
+### Session 5 — 2026-05-18
+Task: Hero overlay
+Status: complete
+Files created: css/sections/hero.css, css/components/buttons.css
+Files modified: index.html (hero section HTML injected into main; hero.css link added; bare #phoenix-fallback and #service-reveal removed from body), css/layout.css (service-reveal block removed — moved to hero.css)
+Decisions: service-reveal-wrap uses flexbox centering so GSAP y-animation on inner card never conflicts; .hero-section__overlay starts visibility:hidden opacity:0 — revealHero() in phoenix-scene.js animates to autoAlpha:1 after GPU pre-warm; section-grain::after uses noise.png at opacity 0.035; button-primary never uses gold — always var(--accent) teal; service-reveal-wrap hidden on mobile (display:none) — touch users can't hover; cursor-dot inside hero-section (not layout.css)
+Exit checks: 23/23 PASS
 Issues: none
