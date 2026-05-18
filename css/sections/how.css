@@ -1,0 +1,119 @@
+/* How It Works — Session 7 */
+/* Owns: .how, .how__inner, .how__header, .how__grid, .how-step, .how-step__num, .how-step__title, .how-step__desc */
+/* .section-grain::after defined in hero.css (global utility) — requires position:relative here */
+/* typography.css owns h3 font-size / line-height / tracking — this file owns spacing + display-num only */
+
+/* ─── Section shell ──────────────────────────────────────────────────────── */
+/* position:relative REQUIRED — section-grain::after is position:absolute */
+/* overflow:hidden REQUIRED — contain the grain pseudo-element */
+/* var(--bg-1) alternates from problem (var(--bg-0)) for visual rhythm */
+.how {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-14) 0;
+  background: var(--bg-1);
+}
+
+/* ─── Inner container ────────────────────────────────────────────────────── */
+/* 1200px — layout section; wider than editorial prose sections (760px) */
+.how__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+/* .label (typography.css) provides uppercase + tracking + teal colour */
+/* display:block promotes inline span to block for correct margin-below */
+.how__header {
+  margin-bottom: 64px;
+}
+
+.how__header > .label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.how__header > h2 {
+  margin: 0;
+  color: var(--text-0);
+}
+
+/* ─── Grid ───────────────────────────────────────────────────────────────── */
+.how__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+/* ─── Step card ──────────────────────────────────────────────────────────── */
+.how-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Decorative number ──────────────────────────────────────────────────── */
+/* Oversized Cormorant numeral — accent teal at 0.2 opacity, purely decorative */
+/* clamp() required per ui-typography rules — no static pixel sizes on type */
+/* clamp(48px, 6vw, 72px) — collapses gracefully across mid viewports        */
+/* user-select:none — not interactive content; prevents accidental selection  */
+.how-step__num {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.2;
+  display: block;
+  user-select: none;
+}
+
+/* ─── Step title — h3 ────────────────────────────────────────────────────── */
+/* typography.css h3 owns font-size / weight / line-height / tracking        */
+/* This file owns spacing and colour only                                     */
+.how-step__title {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--text-0);
+}
+
+/* ─── Step description — p ───────────────────────────────────────────────── */
+/* max-width:none — overrides typography.css p{max-width:65ch}; section owns measure */
+/* -webkit-line-clamp:5 — CMS protection against runaway copy (spec requirement)     */
+.how-step__desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-1);
+  line-height: 1.7;
+  margin: 0;
+  max-width: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .how {
+    padding: var(--space-10) 0;
+  }
+
+  .how__header {
+    margin-bottom: 48px;
+  }
+
+  .how__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ─── Reduced motion — CSS fallback ─────────────────────────────────────── */
+/* JS matchMedia ctx also handles this — belt and braces */
+@media (prefers-reduced-motion: reduce) {
+  .how-step {
+    transition-duration: 0.01ms;
+  }
+}
