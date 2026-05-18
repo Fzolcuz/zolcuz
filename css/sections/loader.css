@@ -1,4 +1,4 @@
-/* Phoenix Loader — Session 2 */
+/* Phoenix Loader — Session 2 (rev: two-video sequential) */
 
 .loader {
   position: fixed; inset: 0;
@@ -7,6 +7,7 @@
   z-index: var(--z-loader);
 }
 
+/* Video 1 — egg hatching, centred square */
 .loader__square {
   position: relative;
   width: min(90vw, 90vh);
@@ -26,12 +27,15 @@
   filter: drop-shadow(0 0 6px rgba(13,148,136,0.8));
 }
 
-.loader__supernova {
-  position: fixed; inset: 0; width: 100%; height: 100%;
-  pointer-events: none; opacity: 0;
-  z-index: var(--z-supernova);
+/* Video 2 — explosion, fullscreen takeover */
+.loader__explosion {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: none; /* shown by JS when Video 1 ends */
 }
 
+/* Tap prompt — autoplay blocked fallback */
 .loader__tap-prompt { position: fixed; inset: 0; z-index: var(--z-tap-prompt); }
 
 .loader__tap-inner {
