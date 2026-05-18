@@ -26,7 +26,9 @@
       "Bash(where gh *)",
       "Bash(powershell -Command \"Get-Command gh -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
       "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\GitHub CLI\\\\\", \"C:\\\\Users\\\\zolcuz\\\\AppData\\\\Local\\\\Programs\\\\gh\\\\\", \"$env:LOCALAPPDATA\\\\Programs\\\\GitHub CLI\\\\\" -Filter \"gh.exe\" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)",
-      "Bash(git fetch *)"
+      "Bash(git fetch *)",
+      "Skill(anthropic-skills:impeccable)",
+      "Skill(anthropic-skills:impeccable:*)"
     ]
   }
 }
