@@ -1,0 +1,209 @@
+/* ── AI Assistant Section ─────────────────────────────────────────────────── */
+/* Alternates background from automation (--bg-1) back to void (--bg-0).      */
+/* One signature moment: audio wave animation on section enter.                */
+
+/* ── Section base ─────────────────────────────────────────────────────────── */
+.ai-assistant {
+  background: var(--bg-0);
+  /* position:relative and overflow:hidden supplied by .section-grain */
+}
+
+/* ── Inner container ──────────────────────────────────────────────────────── */
+.ai-assistant__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-14) var(--space-3);
+}
+
+/* ── 2-column grid ────────────────────────────────────────────────────────── */
+.ai-assistant__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .ai-assistant__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ── Copy column ──────────────────────────────────────────────────────────── */
+.ai-assistant__copy > .label {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.ai-assistant__copy h2 {
+  margin-bottom: var(--space-3);
+}
+
+/* Override typography.css 65ch max-width — copy sits in a constrained column */
+.ai-assistant__copy p {
+  max-width: none;
+  color: var(--text-1);
+}
+
+/* ── Cost comparison block ────────────────────────────────────────────────── */
+.ai-cost-compare {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.ai-cost-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ai-cost-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.ai-cost-value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.ai-cost-value--crossed {
+  color: var(--text-2);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--text-2);
+}
+
+.ai-cost-value--accent {
+  color: var(--accent);
+}
+
+/* ── Demo wrapper ─────────────────────────────────────────────────────────── */
+.ai-assistant__demo-wrapper {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* ── Audio wave ───────────────────────────────────────────────────────────── */
+.ai-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 60px;
+}
+
+.ai-wave__bar {
+  display: block;
+  width: 3px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 2px;
+  opacity: 0.6;
+  transform-origin: bottom center;
+}
+
+/* ── Demo card ────────────────────────────────────────────────────────────── */
+/* Double-bezel shell per design-quality-and-taste.md — embed renders inside  */
+.ai-demo-card {
+  width: 100%;
+  background: var(--surface-0);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.ai-demo-card__inner {
+  background: var(--surface-1);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.ai-demo-card__placeholder {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-2);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* ── Activate button ──────────────────────────────────────────────────────── */
+.ai-activate-btn {
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 12px 28px;
+  min-height: 44px;          /* WCAG 2.5.8 touch target */
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  /* All transitions use cubic-bezier — never bare ease/linear */
+  transition:
+    background 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    color      180ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform  120ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover gated — prevents sticky state on touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .ai-activate-btn:hover {
+    background: var(--accent);
+    color: #030712;
+    transform: scale(1.03);
+  }
+}
+
+.ai-activate-btn:active {
+  transform: scale(0.97);
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+/* Wave bars render static and visible — right column has content, no motion  */
+@media (prefers-reduced-motion: reduce) {
+  .ai-wave__bar {
+    height: 20px !important;
+    opacity: 0.7 !important;
+    transform: scaleY(1) !important;
+  }
+}
+
+/* ── Mobile overrides ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ai-assistant__inner {
+    padding: var(--space-10) var(--space-3);
+  }
+
+  .ai-cost-value {
+    font-size: 22px;
+  }
+
+  .ai-cost-compare {
+    gap: 24px;
+  }
+
+  .ai-demo-card__inner {
+    min-height: 280px;
+  }
+}

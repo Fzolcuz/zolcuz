@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: automation
-Last completed: automation
+Current section: ai-assistant
+Last completed: ai-assistant
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -18,8 +18,18 @@ Last completed: automation
 - Session 10: Process section (2026-05-18)
 - Session 11: Packages section (2026-05-18)
 - Session 12: Automation section (2026-05-19)
+- Session 13: AI Assistant section (2026-05-19)
 
 ## Session Log
+
+### Session 13 — 2026-05-19
+Task: AI Assistant section
+Status: complete
+Files created: css/sections/ai-assistant.css, js/sections/ai-assistant.js, exit-check-13.mjs
+Files modified: index.html (section HTML + ai-assistant.css link), js/app.js (import + initAiAssistant() call, removed stale session-11 comment), build-log.md
+Decisions: var(--bg-0) alternates from automation (--bg-1); audio wave animation (9 bars, sine.inOut, scaleY random 3–8, repeat:-1, yoyo:true, delay i*0.08, transformOrigin bottom center) fires via IntersectionObserver threshold:0.3 — never on page load; observer.disconnect() after first intersection; embed script lazy-loaded via createElement only on button click (once:true listener) — never on page load; gsap.killTweensOf(bars) + autoAlpha wave fade before card reveal; gsap.fromTo(demoCard, {autoAlpha:0,y:16}, {autoAlpha:1,y:0}) on activation — upgrade from spec display:block toggle; double-bezel shell on .ai-demo-card per design-quality-and-taste.md; gsap.matchMedia() ctx with return()=>{split?.revert()} cleanup; SplitText on h2 desktop-only, chars stagger 0.018, power3.out once:true; scroll entrance label/p/costCompare stagger 0.1 desktop / 0.06 mobile, power3.out once:true; demo wrapper entrance y:40 autoAlpha 0→1 power3.out once:true; prefersReduced path sets all elements clearProps:all immediately and skips IntersectionObserver wave; cubic-bezier(0.4,0,0.2,1) on all CSS transitions — no bare ease/linear; min-height:44px on activate btn (WCAG 2.5.8 touch target); type="button" on activate btn; aria-hidden on ai-wave; role="region" + aria-label on demo card; max-width:none on copy p overrides typography.css 65ch constraint; transform-origin:bottom center on .ai-wave__bar via CSS; chatbotId attribute is Chatbase SDK API param (not UI copy) — exempt from no-chatbot rule; placeholder text "Loading Virtual Concierge…" inside demo card before embed renders
+Exit checks: 56/56 PASS
+Spec deviations (intentional): double-bezel on demo card (design-quality-and-taste.md upgrade); GSAP autoAlpha reveal on demo card instead of bare display:block toggle; min-height:44px on button (WCAG upgrade); placeholder loading text inside card; transform-origin moved to CSS class vs inline
 
 ### Session 12 — 2026-05-19
 Task: Automation section
