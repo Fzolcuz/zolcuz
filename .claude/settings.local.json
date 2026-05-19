@@ -37,7 +37,10 @@
       "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
       "Bash(cd \"/c/Users/zolcuz/Desktop/zolcuz-website\" && tail -5 section-automation.md)",
       "Bash(node exit-check-12-spec.mjs)",
-      "Bash(node exit-check-12.mjs)"
+      "Bash(node exit-check-12.mjs)",
+      "Bash(dir /b /s \"C:\\\\Users\\\\zolcuz\\\\Desktop\\\\zolcuz-website\")",
+      "Bash(findstr /v \"node_modules\")",
+      "Bash(findstr /i \"\\\\.\\\\\\(md\\\\|json\\\\|html\\\\|js\\\\|ts\\\\|css\\\\\\)$\")"
     ]
   }
 }
