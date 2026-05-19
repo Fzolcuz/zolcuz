@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: ai-assistant
-Last completed: ai-assistant
+Current section: about
+Last completed: about
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -19,8 +19,18 @@ Last completed: ai-assistant
 - Session 11: Packages section (2026-05-18)
 - Session 12: Automation section (2026-05-19)
 - Session 13: AI Assistant section (2026-05-19)
+- Session 14: About section (2026-05-19)
 
 ## Session Log
+
+### Session 14 — 2026-05-19
+Task: About section
+Status: complete
+Files created: css/sections/about.css, js/sections/about.js, exit-check-14.mjs
+Files modified: index.html (section HTML + about.css link), js/app.js (import + initAbout() call), build-log.md
+Decisions: var(--bg-1) alternates from ai-assistant (--bg-0); gsap.matchMedia() ctx with return()=>{split?.revert()} cleanup; SplitText on .about__h2 desktop-only, type:'chars', stagger:0.018, power3.out, once:true — one signature moment per section per design-quality-and-taste.md; label + chars + body paragraphs stagger in sequence (0.1 desktop / 0.06 mobile); details panel entrance delay:0.15 after grid trigger; detail items stagger 0.07 desktop / 0.05 mobile; meta p stagger 0.06 desktop / 0.04 mobile; prefersReduced branch sets all elements clearProps:all immediately and skips all ScrollTriggers; max-width:56ch on .about__body (spec-specified editorial restraint — intentionally narrower than typography.css 65ch global); max-width:none on mobile overrides the 56ch; list-style:none + role="list" on .about__detail-list (VoiceOver accessibility fix); aria-hidden on .about__rule; autoAlpha not opacity throughout; once:true on all ScrollTriggers; power3.out ease on all GSAP; @media (prefers-reduced-motion) fallback block in CSS; no bare #000/#fff — all via token vars; no banned fonts; &#8209; (non-breaking hyphen) on "Design&#8209;Build" and "Scroll&#8209;driven" to prevent line break at hyphen; &#8202; (hair space) around slashes in meta strip; background:var(--bg-1) confirmed alternation from session-13
+Exit checks: 88/88 PASS
+Spec deviations (intentional): role="list" on detail list (accessibility addition); &#8209; non-breaking hyphens on compound terms; &#8202; hair spaces around slashes in meta strip; split?.revert() in cleanup (memory safety)
 
 ### Session 13 — 2026-05-19
 Task: AI Assistant section
