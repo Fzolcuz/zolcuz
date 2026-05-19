@@ -34,7 +34,10 @@
       "Bash(node exit-check-10-spec.mjs)",
       "Bash(gh pr *)",
       "mcp__plugin_context-mode_context-mode__ctx_search",
-      "mcp__plugin_context-mode_context-mode__ctx_batch_execute"
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "Bash(cd \"/c/Users/zolcuz/Desktop/zolcuz-website\" && tail -5 section-automation.md)",
+      "Bash(node exit-check-12-spec.mjs)",
+      "Bash(node exit-check-12.mjs)"
     ]
   }
 }
