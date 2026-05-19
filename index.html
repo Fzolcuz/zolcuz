@@ -49,6 +49,7 @@
   <link rel="stylesheet" href="/css/sections/automation.css">
   <link rel="stylesheet" href="/css/sections/ai-assistant.css">
   <link rel="stylesheet" href="/css/sections/about.css">
+  <link rel="stylesheet" href="/css/sections/footer.css">
 
   <!-- Cloudflare Turnstile (forms — necessary category, no consent required) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -780,9 +781,43 @@
       </div><!-- /.about__inner -->
     </section><!-- /.about -->
 
-    <!-- Sections added here in build order as sessions complete -->
-
   </main>
+
+  <!-- ── Session 15: Footer ──────────────────────────────────────────────── -->
+  <!-- id="contact" intentional — package CTAs link to #contact             -->
+  <footer class="footer section-grain" id="contact">
+    <div class="footer__inner">
+      <h2 class="footer__headline">Ready to Build<br>Something Premium?</h2>
+      <form class="footer__form" id="footer-form" novalidate>
+        <div class="footer__form-row">
+          <input class="form-input footer__email-input" type="email" id="footer-email"
+            name="email" placeholder="your@company.com" autocomplete="email" required>
+          <button type="submit" class="button-primary footer__cta">Request Your Concept Sprint</button>
+        </div>
+        <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-theme="dark"></div>
+      </form>
+      <p class="footer__micro">48&#8209;hour concept sprint &#8212; No long&#8209;term contract &#8212; Limited builds per quarter</p>
+
+      <div class="footer__badges">
+        <span class="footer__badge">Built on Vercel</span>
+        <span class="footer__badge">Powered by GSAP</span>
+        <span class="footer__badge">3D via Three.js</span>
+        <span class="footer__badge">CMS by Sanity</span>
+      </div>
+
+      <div class="footer__meta">
+        <hr class="footer__divider">
+        <div class="footer__meta-row">
+          <p class="footer__copyright">&#169; 2025 ZOLCUZ Studios. All rights reserved.</p>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a id="footer-linkedin" href="#">LinkedIn</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- No JavaScript fallback -->
   <noscript>
