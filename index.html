@@ -47,6 +47,7 @@
   <link rel="stylesheet" href="/css/sections/process.css">
   <link rel="stylesheet" href="/css/sections/packages.css">
   <link rel="stylesheet" href="/css/sections/automation.css">
+  <link rel="stylesheet" href="/css/sections/ai-assistant.css">
 
   <!-- Cloudflare Turnstile (forms — necessary category, no consent required) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -662,6 +663,64 @@
         </div><!-- /.automation__content -->
       </div><!-- /.automation__inner -->
     </section><!-- /.automation -->
+
+    <!-- ── Session 13: AI Assistant ──────────────────────────────────────────── -->
+    <section class="ai-assistant section-grain" id="ai-assistant">
+      <div class="ai-assistant__inner">
+        <div class="ai-assistant__grid">
+
+          <!-- Copy column -->
+          <div class="ai-assistant__copy">
+            <span class="label">Intelligent Infrastructure</span>
+            <h2>Your Website Qualifies Leads<br>While You Sleep</h2>
+            <p>The AI Virtual Concierge handles after-hours inquiries, qualifies budget and timeline, and routes serious leads directly to you&#8202;&#8202;automatically.</p>
+            <div class="ai-cost-compare">
+              <div class="ai-cost-item">
+                <span class="ai-cost-label">Human admin</span>
+                <span class="ai-cost-value ai-cost-value--crossed">$3,000/mo</span>
+              </div>
+              <div class="ai-cost-item">
+                <span class="ai-cost-label">AI Virtual Concierge</span>
+                <span class="ai-cost-value ai-cost-value--accent">$150/mo</span>
+              </div>
+            </div>
+          </div><!-- /.ai-assistant__copy -->
+
+          <!-- Demo column -->
+          <div class="ai-assistant__demo-wrapper" id="ai-demo-wrapper">
+
+            <!-- Audio wave — plays when section enters viewport -->
+            <div class="ai-wave" id="ai-wave" aria-hidden="true">
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+              <span class="ai-wave__bar"></span>
+            </div>
+
+            <!-- Demo card — hidden until button clicked -->
+            <div class="ai-demo-card" id="ai-demo-card"
+              role="region" aria-label="Virtual Concierge demo"
+              style="display:none">
+              <div class="ai-demo-card__inner">
+                <p class="ai-demo-card__placeholder">Loading Virtual Concierge&#8230;</p>
+              </div>
+            </div>
+
+            <!-- Activate button — lazy-loads embed on first click only -->
+            <button class="ai-activate-btn" id="ai-activate-btn" type="button">
+              <span>Experience the Concierge</span>
+            </button>
+
+          </div><!-- /.ai-assistant__demo-wrapper -->
+
+        </div><!-- /.ai-assistant__grid -->
+      </div><!-- /.ai-assistant__inner -->
+    </section><!-- /.ai-assistant -->
 
     <!-- Sections added here in build order as sessions complete -->
 
