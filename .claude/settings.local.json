@@ -44,7 +44,9 @@
       "Skill(superpowers:finishing-a-development-branch)",
       "Skill(superpowers:finishing-a-development-branch:*)",
       "Bash(npm test *)",
-      "Bash(node exit-check-13.mjs)"
+      "Bash(node exit-check-13.mjs)",
+      "Bash(powershell -command \"Get-Content index.html | Measure-Object -Line\")",
+      "Bash(node exit-check-14.mjs)"
     ]
   }
 }

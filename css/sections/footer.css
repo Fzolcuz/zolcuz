@@ -1,0 +1,173 @@
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+/* RULE: background is ALWAYS var(--bg-0) — locked dark, even in light mode  */
+
+.footer {
+  background: var(--bg-0);
+  padding: var(--space-14) 0 var(--space-8);
+  position: relative;
+}
+
+/* Disable grain tint — footer is always void-black, no background-color needed */
+.footer.section-grain::after {
+  background-color: transparent;
+}
+
+/* ── Inner ───────────────────────────────────────────────────────────────── */
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Headline ────────────────────────────────────────────────────────────── */
+.footer__headline {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 600;
+  line-height: 1.0;
+  color: #F5F1E8;
+  margin-bottom: 40px;
+}
+
+/* ── Form ────────────────────────────────────────────────────────────────── */
+.footer__form {
+  margin-bottom: 16px;
+}
+
+.footer__form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.footer__email-input {
+  flex: 1;
+  min-width: 260px;
+  font-size: 16px; /* REQUIRED: iOS Safari — prevents viewport zoom on focus */
+  background: #111113;
+  border-color: #24242A;
+  color: #F5F1E8;
+  transition: border-color 120ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer__email-input:hover {
+    border-color: #3A3A42;
+  }
+}
+
+.footer__email-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.footer__email-input::placeholder {
+  color: #636366;
+}
+
+.footer__cta {
+  flex-shrink: 0;
+}
+
+/* ── Micro copy ──────────────────────────────────────────────────────────── */
+.footer__micro {
+  font-size: 12px;
+  color: #A7A195;
+  font-family: var(--font-body);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ── Tech badges ─────────────────────────────────────────────────────────── */
+.footer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 48px;
+  margin-bottom: 40px;
+}
+
+.footer__badge {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #A7A195;
+  border: 1px solid #24242A;
+  padding: 6px 14px;
+  border-radius: 100px;
+  transition:
+    color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer__badge:hover {
+    color: #CFC8BB;
+    border-color: #3A3A42;
+  }
+}
+
+/* ── Meta bar ────────────────────────────────────────────────────────────── */
+.footer__divider {
+  border: none;
+  border-top: 1px solid #1B1B20;
+  margin-bottom: 24px;
+}
+
+.footer__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer__copyright {
+  font-size: 13px;
+  color: #636366;
+  font-family: var(--font-body);
+}
+
+.footer__links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__links a {
+  font-size: 13px;
+  color: #636366;
+  font-family: var(--font-body);
+  text-decoration: none;
+  transition: color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer__links a:hover {
+    color: #A7A195;
+  }
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .footer__form-row {
+    flex-direction: column;
+  }
+
+  .footer__cta {
+    width: 100%;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .footer__headline,
+  .footer__form,
+  .footer__micro,
+  .footer__badges,
+  .footer__meta {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

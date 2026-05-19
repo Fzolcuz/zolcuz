@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: about
-Last completed: about
+Current section: footer
+Last completed: footer
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -20,8 +20,18 @@ Last completed: about
 - Session 12: Automation section (2026-05-19)
 - Session 13: AI Assistant section (2026-05-19)
 - Session 14: About section (2026-05-19)
+- Session 15: Footer section (2026-05-19)
 
 ## Session Log
+
+### Session 15 — 2026-05-19
+Task: Footer section
+Status: complete
+Files created: css/sections/footer.css, js/sections/footer.js, exit-check-15.mjs
+Files modified: index.html (footer HTML + footer.css link), js/app.js (import + initFooter() call), build-log.md
+Decisions: background:var(--bg-0) always — locked dark even in light mode; font-size:16px on .footer__email-input (iOS Safari zoom fix); all CSS transitions cubic-bezier(0.4,0,0.2,1) — no bare ease/linear; hover states gated in @media(hover:hover) and (pointer:fine); gsap.matchMedia() ctx with return()=>{split?.revert()} cleanup; SplitText on .footer__headline desktop-only, type:'chars', stagger:0.018, power3.out, once:true — signature moment per design-quality-and-taste.md; form + micro + badges + meta each have individual scroll entrances, autoAlpha, power3.out, once:true; mobile path lighter — no SplitText, halved y values, stagger 0.06/0.04; prefersReduced branch sets all elements clearProps:all immediately and skips all ScrollTriggers; LinkedIn obfuscated via JS string concatenation — never hardcoded in HTML; copyright year via new Date().getFullYear(); cold-start UX: 'Waking secure server…' at 2000ms; turnstile token via window.turnstile?.getResponse() ?? ''; form POSTs JSON to /api/submit with source:'footer'; .footer.section-grain::after compound selector (corrected from spec's descendant selector — footer has section-grain class directly); no raw mailto: links; &#8209; non-breaking hyphens on '48‑hour' and 'long‑term'; &#8212; em-dash entities in micro copy; id="contact" on footer (intentional deviation — package CTAs link to #contact, spec had id="footer" which would break all CTA anchor links)
+Exit checks: 50/50 PASS
+Spec deviations (intentional): id="contact" instead of id="footer" (fixes broken package CTA anchor links); .footer.section-grain::after compound selector vs spec's .footer .section-grain::after (footer has section-grain directly on element); &#8209; non-breaking hyphens on compound terms in micro copy
 
 ### Session 14 — 2026-05-19
 Task: About section

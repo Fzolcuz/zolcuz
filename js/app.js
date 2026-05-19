@@ -11,6 +11,7 @@ import { initPackages }    from '/js/sections/packages.js';
 import { initAutomation }   from '/js/sections/automation.js';
 import { initAiAssistant }  from '/js/sections/ai-assistant.js';
 import { initAbout }        from '/js/sections/about.js';
+import { initFooter }       from '/js/sections/footer.js';
 // lenis-init.js is imported by nav.js — Lenis starts on first import
 
 // 1. Unhide main content immediately — boot failsafe removal
@@ -37,7 +38,7 @@ function initAnimations() {
   initAutomation();              // session-12 — section-automation.md
   initAiAssistant();             // session-13 — section-ai-assistant.md
   initAbout();                   // session-14 — section-about.md
-  // initFooter();               // session-15 — section-footer.md
+  initFooter();                   // session-15 — section-footer.md
 }
 
 // 5. Wait for fonts, then init section animations
