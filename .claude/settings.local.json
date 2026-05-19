@@ -29,7 +29,15 @@
       "Bash(git fetch *)",
       "Skill(anthropic-skills:impeccable)",
       "Skill(anthropic-skills:impeccable:*)",
-      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\('test script:', p.scripts && p.scripts.test || 'none'\\)\")"
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\('test script:', p.scripts && p.scripts.test || 'none'\\)\")",
+      "Bash(node exit-check-10.mjs)",
+      "Bash(node exit-check-10-spec.mjs)",
+      "Bash(gh pr *)",
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "Bash(cd \"/c/Users/zolcuz/Desktop/zolcuz-website\" && tail -5 section-automation.md)",
+      "Bash(node exit-check-12-spec.mjs)",
+      "Bash(node exit-check-12.mjs)"
     ]
   }
 }

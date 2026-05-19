@@ -46,6 +46,7 @@
   <link rel="stylesheet" href="/css/sections/retention.css">
   <link rel="stylesheet" href="/css/sections/process.css">
   <link rel="stylesheet" href="/css/sections/packages.css">
+  <link rel="stylesheet" href="/css/sections/automation.css">
 
   <!-- Cloudflare Turnstile (forms — necessary category, no consent required) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -514,6 +515,153 @@
         </div>
       </div>
     </section><!-- /.packages -->
+
+    <!-- Automation section — session-12 -->
+    <section class="automation section-grain" id="automation">
+      <div class="automation__inner">
+        <span class="label">Automated Revenue Systems</span>
+        <h2>Every Lead. Followed Up. Automatically.</h2>
+
+        <!-- Niche tab filter -->
+        <div class="automation__tabs" role="tablist" aria-label="Select your niche">
+          <button class="automation__tab active" data-niche="kitchen" role="tab" aria-selected="true"  aria-controls="automation-timeline-kitchen">Kitchen</button>
+          <button class="automation__tab"        data-niche="theater" role="tab" aria-selected="false" aria-controls="automation-timeline-theater">Theater</button>
+          <button class="automation__tab"        data-niche="closet"  role="tab" aria-selected="false" aria-controls="automation-timeline-closet">Closet</button>
+          <button class="automation__tab"        data-niche="bathroom" role="tab" aria-selected="false" aria-controls="automation-timeline-bathroom">Bathroom</button>
+          <button class="automation__tab"        data-niche="windows" role="tab" aria-selected="false" aria-controls="automation-timeline-windows">Windows</button>
+        </div>
+
+        <!-- Timelines — show/hide via JS. Only .visible timeline is displayed. -->
+        <div class="automation__content" id="automation-content">
+
+          <!-- Kitchen -->
+          <div class="automation__timeline" data-niche="kitchen" id="automation-timeline-kitchen" role="tabpanel">
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">01</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Homeowner submits cabinetry inquiry</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Instant email to owner with budget and scope summary</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">02</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Lead is qualified for investment range</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Confirmation sent to lead with gallery PDF attachment</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">03</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Booking link delivered automatically</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Consultation booked without a single phone call</p>
+              </div>
+            </div>
+          </div><!-- /.automation__timeline[kitchen] -->
+
+          <!-- Home Theater -->
+          <div class="automation__timeline" data-niche="theater" id="automation-timeline-theater" role="tabpanel">
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">01</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Homeowner submits home theater inquiry</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Room dimensions, budget, and timeline captured instantly</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">02</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Lead is tagged by investment level</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;SMS alert to your team for high-value prospects</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">03</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Portfolio PDF delivered to the lead automatically</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Discovery call booked without a single back-and-forth</p>
+              </div>
+            </div>
+          </div><!-- /.automation__timeline[theater] -->
+
+          <!-- Closet -->
+          <div class="automation__timeline" data-niche="closet" id="automation-timeline-closet" role="tabpanel">
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">01</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Post-consultation follow-up triggered</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Proposal recap delivered within the hour</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">02</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Client receives a personalised design summary</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Testimonial request queued for day three</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">03</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Five-day nurture sequence activates</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Referral relationship secured automatically</p>
+              </div>
+            </div>
+          </div><!-- /.automation__timeline[closet] -->
+
+          <!-- Bathroom -->
+          <div class="automation__timeline" data-niche="bathroom" id="automation-timeline-bathroom" role="tabpanel">
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">01</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Homeowner submits renovation enquiry</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Renovation type and budget qualified in the same thread</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">02</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Lead routed to your available designer</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Process guide delivered before the first call</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">03</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Consultation auto-scheduled</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;First meeting confirmed without any admin overhead</p>
+              </div>
+            </div>
+          </div><!-- /.automation__timeline[bathroom] -->
+
+          <!-- Windows and Doors -->
+          <div class="automation__timeline" data-niche="windows" id="automation-timeline-windows" role="tabpanel">
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">01</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Quote request received</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Property details, unit count, and style captured instantly</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">02</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Brochure sent to the lead automatically</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Your estimator notified in real time</p>
+              </div>
+            </div>
+            <div class="automation-step">
+              <span class="automation-step__num" aria-hidden="true">03</span>
+              <div class="automation-step__body">
+                <p class="automation-step__experience">Fourteen-day follow-up sequence begins</p>
+                <p class="automation-step__outcome">&#8594;&thinsp;Project-ready homeowners re-engaged without effort</p>
+              </div>
+            </div>
+          </div><!-- /.automation__timeline[windows] -->
+
+        </div><!-- /.automation__content -->
+      </div><!-- /.automation__inner -->
+    </section><!-- /.automation -->
 
     <!-- Sections added here in build order as sessions complete -->
 

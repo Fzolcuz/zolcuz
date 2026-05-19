@@ -7,7 +7,8 @@ import { initHow }     from '/js/sections/how.js';
 import { initNiches }     from '/js/sections/niches.js';
 import { initRetention } from '/js/sections/retention.js';
 import { initProcess }   from '/js/sections/process.js';
-import { initPackages }  from '/js/sections/packages.js';
+import { initPackages }    from '/js/sections/packages.js';
+import { initAutomation }  from '/js/sections/automation.js';
 // lenis-init.js is imported by nav.js — Lenis starts on first import
 
 // 1. Unhide main content immediately — boot failsafe removal
@@ -29,10 +30,10 @@ function initAnimations() {
   initHow();                     // session-7  — section-how-it-works.md
   initNiches();                  // session-8  — section-niches.md
   initRetention();               // session-9  — section-retention-stats.md
-  // initAutomation();           // session-10 — section-automation.md
   // initAiAssistant();          // session-11 — section-ai-assistant.md
   initProcess();                 // session-10 — section-process.md (built session-10)
   initPackages();                // session-11 — section-packages.md
+  initAutomation();              // session-12 — section-automation.md
   // initAbout();                // session-14 — section-about.md
   // initFooter();               // session-15 — section-footer.md
 }

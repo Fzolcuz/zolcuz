@@ -2,8 +2,8 @@
 
 ## Project State
 Started: 2026-05-18
-Current section: packages
-Last completed: packages
+Current section: automation
+Last completed: automation
 
 ## Completed Sections
 - Session 1: project-setup (2026-05-18)
@@ -17,8 +17,18 @@ Last completed: packages
 - Session 9: Retention Stats section (2026-05-18)
 - Session 10: Process section (2026-05-18)
 - Session 11: Packages section (2026-05-18)
+- Session 12: Automation section (2026-05-19)
 
 ## Session Log
+
+### Session 12 — 2026-05-19
+Task: Automation section
+Status: complete
+Files created: css/sections/automation.css, js/sections/automation.js, exit-check-12.mjs, exit-check-12-spec.mjs
+Files modified: index.html (section HTML + automation.css link), js/app.js (import + initAutomation() call), build-log.md
+Decisions: var(--bg-1) alternates from packages (--bg-0); showNiche() owns all tab/timeline state — hides all then reveals target; gsap.fromTo autoAlpha 0→1 stagger 0.1 power2.out on step reveal; IntersectionObserver threshold:0.2 guards initial kitchen reveal — never fires on page load; gsap.matchMedia() ctx with return()=>{split?.revert()} cleanup; SplitText on h2 desktop-only with chars stagger 0.018 power3.out once:true; scroll entrance on label/h2/tabs with stagger 0.1 desktop / 0.06 mobile power3.out once:true; prefersReduced branch sets all steps autoAlpha:1 y:0 immediately and calls showNiche('kitchen') directly bypassing observer; clamp(28px,3.5vw,40px) on step__num per ui-typography rule; tabular-nums on numerals; max-width:none on experience/outcome overrides typography.css p constraint; hover inside @media(hover:hover) and (pointer:fine); cubic-bezier(0.4,0,0.2,1) on all CSS transitions — no bare ease/linear; #030712 on tab.active color (approved void token value); aria-hidden on decorative nums; aria-controls wiring tabs→panels; &#8594;&thinsp; for outcome arrows
+Exit checks: 89/89 PASS (comprehensive) · 30/30 PASS (section-automation.md spec)
+Spec deviations: none
 
 ### Session 11 — 2026-05-18
 Task: Packages section

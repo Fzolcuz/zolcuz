@@ -1,0 +1,169 @@
+/* ==========================================================================
+   Automation Section — Session 12
+   Background: var(--bg-1) alternates from packages (--bg-0)
+   ========================================================================== */
+
+.automation {
+  background: var(--bg-1);
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.automation__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Eyebrow label */
+.automation .label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* Heading — spacing only, typography.css owns font-size/weight */
+.automation h2 {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Tab strip
+   -------------------------------------------------------------------------- */
+
+.automation__tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 32px 0 48px;
+}
+
+.automation__tab {
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-2);
+  padding: 8px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1;
+  transition:
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    color        200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background   200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover — MUST be inside media query to prevent sticky hover on touch */
+@media (hover: hover) and (pointer: fine) {
+  .automation__tab:hover {
+    color: var(--text-0);
+    border-color: var(--border-strong);
+  }
+}
+
+.automation__tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #030712;
+}
+
+.automation__tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Timeline show / hide
+   -------------------------------------------------------------------------- */
+
+.automation__timeline[data-niche]:not(.visible) {
+  display: none;
+}
+
+.automation__timeline.visible {
+  display: flex;
+}
+
+.automation__timeline {
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* --------------------------------------------------------------------------
+   Step layout
+   -------------------------------------------------------------------------- */
+
+.automation-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 24px;
+  align-items: start;
+  /* Steps start hidden — GSAP autoAlpha reveals on tab switch */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Decorative numeral — clamp per ui-typography rule */
+.automation-step__num {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Customer experience line */
+.automation-step__experience {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-0);
+  margin: 0 0 8px;
+  max-width: none; /* overrides typography.css p constraint */
+  line-height: 1.5;
+}
+
+/* Owner outcome line */
+.automation-step__outcome {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--accent);
+  margin: 0;
+  max-width: none; /* overrides typography.css p constraint */
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .automation__tabs {
+    gap: 6px;
+  }
+
+  .automation__tab {
+    font-size: 13px;
+    padding: 7px 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .automation-step {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+}
