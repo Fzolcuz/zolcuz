@@ -40,7 +40,11 @@
       "Bash(node exit-check-12.mjs)",
       "Bash(dir /b /s \"C:\\\\Users\\\\zolcuz\\\\Desktop\\\\zolcuz-website\")",
       "Bash(findstr /v \"node_modules\")",
-      "Bash(findstr /i \"\\\\.\\\\\\(md\\\\|json\\\\|html\\\\|js\\\\|ts\\\\|css\\\\\\)$\")"
+      "Bash(findstr /i \"\\\\.\\\\\\(md\\\\|json\\\\|html\\\\|js\\\\|ts\\\\|css\\\\\\)$\")",
+      "Skill(superpowers:finishing-a-development-branch)",
+      "Skill(superpowers:finishing-a-development-branch:*)",
+      "Bash(npm test *)",
+      "Bash(node exit-check-13.mjs)"
     ]
   }
 }
